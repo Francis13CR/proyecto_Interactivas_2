@@ -1,0 +1,13 @@
+v1.0.0 : 
+    -Se elabora el navbar 
+    -Se elabora  la base de las cartas paras las noticias.
+    -se crean los archivos sass
+
+v1.0.1 :
+    -fix a algunos errores con las clases.
+
+v1.0.2: 
+    -se ha agregado un archivo para control de versiones
+    -las noticias funcionan con vue
+    -la noticia principal corresponde a la que tenga mayor likes
+    -se han agregado mas fallos para corregirlos despues
