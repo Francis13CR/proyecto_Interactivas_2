@@ -8,7 +8,7 @@ const app = Vue.createApp({
                     image: './imgs/ps4.jpeg',
                     available: true,
                     date: ' May 5, 2022, 9:05am EDT',
-                    category: 'tech',
+                    category: 'Juegos',
                     likes: 90
                 },
                 {
@@ -18,7 +18,7 @@ const app = Vue.createApp({
                     image: './imgs/daredevil.jpg',
                     available: true,
                     date: 'May 4, 2022, 11:10am EDT',
-                    category: 'tech',
+                    category: 'Peliculas',
                     likes: 91
                 },
                 {
@@ -28,7 +28,7 @@ const app = Vue.createApp({
                     image: './imgs/spyxfamily.jpg',
                     available: true,
                     date: 'May 3, 2022, 1:20pm EDT',
-                    category: 'tech',
+                    category: 'Anime',
                     likes: 70
                 },
                 {
@@ -38,7 +38,7 @@ const app = Vue.createApp({
                     image: './imgs/xbox.jpg',
                     available: true,
                     date: 'Mar 31, 2022, 12:55pm EDT',
-                    category: 'health',
+                    category: 'Juegos',
                     likes: 60
                 },
               
