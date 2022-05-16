@@ -5,13 +5,9 @@
 .bg-nav{
     background-color: variables.$bg_color;
 }
-.nav-margin{
-    padding-bottom: mixin.rem(30);
-}
+
 //para los estilos del nav
 .nav-style{
-    
-    
     a{
         color: white;
     }
@@ -19,8 +15,7 @@
         //usar funcion dentro de mixin
         padding-left: mixin.rem(5);
         position: relative;
-        top: mixin.rem(45);
-        font-size: mixin.rem(40);
+        top: mixin.rem(30);
     }
 }
 .card-margin{

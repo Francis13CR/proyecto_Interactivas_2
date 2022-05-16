@@ -2,18 +2,13 @@
   background-color: #2E193F;
 }
 
-.nav-margin {
-  padding-bottom: 1.875rem;
-}
-
 .nav-style a {
   color: white;
 }
 .nav-style .nav-title {
   padding-left: 0.3125rem;
   position: relative;
-  top: 2.8125rem;
-  font-size: 2.5rem;
+  top: 1.875rem;
 }
 
 .card-margin {
