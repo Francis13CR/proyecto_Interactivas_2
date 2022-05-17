@@ -15,6 +15,20 @@
   margin-top: 10%;
 }
 
+.card-hidden {
+  display: none !important;
+}
+
+.card-likes {
+  position: relative;
+  left: 95%;
+  bottom: 13%;
+}
+
+.img-fix {
+  max-height: 45%;
+}
+
 .card-form {
   position: absolute;
   top: 50%;
@@ -29,4 +43,6 @@
 .form-btn {
   margin-top: 5%;
   margin-left: 40%;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

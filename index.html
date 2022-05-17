@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="css/style.css">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,12 +15,10 @@
      <!-- VueJS -->
      <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
      <title>Geeknews</title>
-
 </head>
 <body>
     <div class="container-fluid" id="app">
         <header class="row justify-content-center">
-            
             <nav class="fixed-top nav-margin bg-nav nav-style " aria-label="main navigation">
                 <a class="navbar-brand  nav-title" href="#">Geeknews</a>
                 <ul class="nav justify-content-center">
@@ -47,9 +44,7 @@
             </nav>
         </header>
         <!-- noticias mas destacadas -->
-       
-        <!--noticias normales-->
-        <div class="" v-for="(notice,index) in new_most_liked">
+        <div v-for="(notice,index) in new_most_liked">
             <div class="card mb-3 card-margin">
                  <div class="row g-0">
                      <div class="col-md-8">
@@ -66,28 +61,17 @@
                  </div>
             </div>
         </div>
-            <div class="row " >
-                <div class="col-md-4  " v-for="(notice,index) in news" v-show="notice.available">
-                    <div class="card mb-2 card-margin h-100">
-                        <img :src="notice.image" class="card-img-top img-fluid" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">{{notice.title}}</h5>
-                            <p class="card-text">{{notice.description}}</p>
-                            <p class="card-text"><small class="text-muted">{{notice.date}}</small></p>
-                            <p> <i class="material-icons">favorite</i>{{notice.likes}}</p>
-                        </div>
-                    </div>
-                </div>
+        <!--noticias normales-->
+        <div class="row" >
+            <div class="col-md-4" v-for="(n,index) in news" v-show="n.available">
+                <news-cards :title="n.title" :image="n.image" :date="n.date"
+                    :description="n.description" :likes="n.likes">
+                </news-cards>
             </div>
-            
-            
-            
         </div>
-        
-        
-        
     </div>
     <script src="js/main.js"></script>
+    <script src="js/components/newsCards.js"></script>
     <script>
         const mountedApp = app.mount("#app");
     </script>

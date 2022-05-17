@@ -11,3 +11,9 @@ v1.0.2:
     -las noticias funcionan con vue
     -la noticia principal corresponde a la que tenga mayor likes
     -se han agregado mas fallos para corregirlos despues
+v1.0.3: 
+    -Se ha implementado los componentes de vue:
+        -se ha cambiado como trabaja las noticias, ahora se utilizan componentes vue en vez de html puro.
+    -se ha cambiado el tamano de las imagenes de las noticias
+    -Se ha creado nuevas carpetas para las imagenes de prueba
+    -Avances en el login.

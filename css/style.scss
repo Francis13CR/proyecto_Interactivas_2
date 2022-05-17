@@ -18,8 +18,21 @@
         top: mixin.rem(30);
     }
 }
+//cards
 .card-margin{
     margin-top: 10%;
+}
+.card-hidden{
+    display: none!important;
+}
+.card-likes{
+    position: relative;
+    left: 95%;
+    bottom: 13%;
+}
+.img-fix{
+    max-height: 45%;
+    
 }
 
 // login
