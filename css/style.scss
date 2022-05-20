@@ -1,57 +1,70 @@
 //archivo con las clases globales del proyecto
-@use 'variables';
-@use 'mixin';
+@use "variables";
+@use "mixin";
 //para el fondo del nav
-.bg-nav{
-    background-color: variables.$bg_color;
+.bg-nav {
+  background-color: variables.$bg_color;
 }
 
 //para los estilos del nav
-.nav-style{
-    a{
-        color: white;
-    }
-    .nav-title{
-        //usar funcion dentro de mixin
-        padding-left: mixin.rem(5);
-        position: relative;
-        top: mixin.rem(30);
-    }
+.nav-style {
+  a {
+    color: white;
+  }
+  .nav-title {
+    //usar funcion dentro de mixin
+    padding-left: mixin.rem(5);
+    position: relative;
+    top: mixin.rem(30);
+  }
 }
 //cards
-.card-margin{
-    margin-top: 10%;
+.card-margin {
+  margin-top: 10%;
 }
-.card-hidden{
-    display: none!important;
+.card-hidden {
+  display: none !important;
 }
-.card-likes{
-    position: relative;
-    left: 95%;
-    bottom: 13%;
+.card-likes {
+  position: relative;
+  left: 95%;
+  bottom: 13%;
 }
-.img-fix{
-    max-height: 45%;
-    
+.img-fix {
+  max-height: 45%;
 }
 
 // login
 
-.card-form{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color:variables.$bg_color;
-    color: aliceblue;
-    transform: translate(-50%,-50%);
-    font-family:  'Marvel', sans-serif;;
-    width: 356px;
-    padding: 50px 30px;
-    border-radius: 5px;
+.card-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: variables.$bg_color;
+  color: aliceblue;
+  transform: translate(-50%, -50%);
+  font-family: "Marvel", sans-serif;
+  width: 356px;
+  padding: 50px 30px;
+  border-radius: 5px;
 }
 
+.form-btn {
+  display: block;
+  width: 50%;
+  color: #97bbe8;
+  border: 1px solid #97bbe8;
 
-.form-btn{
-    margin-top: 5%;
-     margin-left: 40%;
+  &:hover {
+    background-color: #97bbe8;
+  }
+}
+
+.img{
+  background-image: url(../imgs/imgspruebas/bg-img.jpg);
+  height: 100vh;
+    width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

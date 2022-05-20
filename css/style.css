@@ -43,6 +43,20 @@
 }
 
 .form-btn {
-  margin-top: 5%;
-  margin-left: 40%;
+  display: block;
+  width: 50%;
+  color: #97bbe8;
+  border: 1px solid #97bbe8;
+}
+.form-btn:hover {
+  background-color: #97bbe8;
+}
+
+.img {
+  background-image: url(../imgs/imgspruebas/bg-img.jpg);
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }/*# sourceMappingURL=style.css.map */
