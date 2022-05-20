@@ -41,12 +41,16 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    background-color:variables.$bg_color;
+    color: aliceblue;
     transform: translate(-50%,-50%);
-    width: 380px;
+    font-family:  'Marvel', sans-serif;;
+    width: 356px;
     padding: 50px 30px;
-    border-radius: 10px;
-    box-shadow: 7px 7px 80px #000;
+    border-radius: 5px;
 }
+
+
 .form-btn{
     margin-top: 5%;
      margin-left: 40%;

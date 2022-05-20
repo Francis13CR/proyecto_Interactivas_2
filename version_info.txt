@@ -17,3 +17,9 @@ v1.0.3:
     -se ha cambiado el tamano de las imagenes de las noticias
     -Se ha creado nuevas carpetas para las imagenes de prueba
     -Avances en el login.
+
+    v1.0.4:
+    -Se agregra la pagina de registro.
+    -Se cambia el diseño del registro y session
+    -Se ha agregado la tipografia Marvel para el registro y session, dicha fuente aun no esta aceptada por 
+    los miembros del equipo.
