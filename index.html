@@ -46,31 +46,12 @@
                 </ul>
             </nav>
         </header>
-        <!-- noticias mas destacadas -->
-        <div v-for="(notice,index) in new_most_liked">
-            <div class="card mb-3 card-margin">
-                 <div class="row g-0">
-                     <div class="col-md-8">
-                         <a href="vistaNoticia.html"><img :src="notice.image" class=" img-fluid rounded-start" alt="..."></a>
-                     </div>
-                     <div class="col-md-4">
-                         <div class="card-body">
-                             <h5 class="card-title font">{{notice.title}}</h5>
-                             <p class="card-text">{{notice.description}}</p>
-                             <p class="card-text"><small class="text-muted">{{notice.date}}</small></p>
-                             <p> <i class="material-icons">favorite</i>{{notice.likes}}</p>
-                         </div>
-                     </div>
-                 </div>
-            </div>
-        </div>
+        
         <!--noticias normales-->
-        <div class="row" >
-            <div class="col-md-4" v-for="(n,index) in news" v-show="n.available">
-                <news-cards :title="n.title" :image="n.image" :date="n.date"
-                    :description="n.description" :likes="n.likes">
-                </news-cards>
-            </div>
+        <div class="row">
+             <news-cards v-for="(n,index) in news" :index="index" :title="n.title" :image="n.image" :date="n.date"
+                 :description="n.description" :likes="n.likes">
+             </news-cards>
         </div>
     </div>
     <script src="js/main.js"></script>

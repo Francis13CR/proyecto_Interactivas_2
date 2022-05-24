@@ -49,11 +49,9 @@ const app = Vue.createApp({
     methods: {
     },
     mounted() {
-        //pasar la noticia mas leida a la variable new_most_liked
-        this.new_most_liked = this.news.sort((a, b) => b.likes - a.likes).slice(0, 1);
-        //pasar available a false en la noticia mas leida dentro de news
-        this.news.sort((a, b) => b.likes - a.likes).slice(0, 1).forEach(element => {
-            element.available = false;
+        //ordenar por likes
+        this.news.sort(function (a, b) {
+            return b.likes - a.likes;
         });
     },
     computed: {
