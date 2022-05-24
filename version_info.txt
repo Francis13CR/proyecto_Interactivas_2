@@ -18,8 +18,10 @@ v1.0.3:
     -Se ha creado nuevas carpetas para las imagenes de prueba
     -Avances en el login.
 
-    v1.0.4:
+v1.0.4:
     -Se agregra la pagina de registro.
     -Se cambia el diseño del registro y session
     -Se ha agregado la tipografia Marvel para el registro y session, dicha fuente aun no esta aceptada por 
     los miembros del equipo.
+v1.0.5
+    -fix al componente de noticias, ahora se maneja todo desde el template de newscard    
