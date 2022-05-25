@@ -25,3 +25,8 @@ v1.0.4:
     los miembros del equipo.
 v1.0.5
     -fix al componente de noticias, ahora se maneja todo desde el template de newscard    
+v1.0.6
+   -Se agreaga el componente de NewsDetails.js, el cual nos ayuda a mostrar la informacion de la noticia
+   sleccionada
+   -Se ahgrega el meetodo showNewsDetails en el main.js
+   -Se agrega la imagen default-image.webp la cual se mostrara cuando no se encuentre la imagen de la noticia

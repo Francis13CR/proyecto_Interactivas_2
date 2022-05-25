@@ -4,10 +4,6 @@ app.component('news-cards', {
             type: String,
             required: true,
         },
-        description: {
-            type: String,
-            required: true,
-        },
         image: {
             type: String,
             required: true,
@@ -41,14 +37,17 @@ app.component('news-cards', {
             default: 0
         }
     },
-    template: `
+    template: 
+    /*html*/
+    
+    `
     <div class="col-md-4"  v-if="index>0">
         <div class="card  mb-2 card-margin h-100" >
         <img class="card-img-top  img-fluid img-fix" :src="image" alt = "Card image cap" >
             <div class="card-body">
                 <h5 class="card-title">{{title}}</h5>
                 <hr>
-                <p class="card-text">{{description}}</p>
+                
                 <p class="card-text"><small class="text-muted">{{date}}</small></p>
                 <p class="card-text card-likes"> <i class="material-icons ">favorite</i><br>{{likes}}</p>
             </div>
@@ -64,7 +63,7 @@ app.component('news-cards', {
                      <div class="col-md-4">
                          <div class="card-body">
                              <h5 class="card-title font">{{title}}</h5>
-                             <p class="card-text">{{description}}</p>
+                        
                              <p class="card-text"><small class="text-muted">{{date}}</small></p>
                              <p> <i class="material-icons">favorite</i>{{likes}}</p>
                          </div>
