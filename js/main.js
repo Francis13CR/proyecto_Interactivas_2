@@ -4,8 +4,9 @@ const app = Vue.createApp({
             news: [{
                     id: 1,
                     title: 'Se espera que las ventas de la ps5 lleguen a los 10 millones de dólares',
+                    subtitle: 'Hola soy un subtitulo de la noticia',
                     description: 'El equipo de Sony ha confirmado que las ventas de la consola PlayStation 5 llegarán a los 10 millones de dólares, según la compañía.',
-                    image: './imgs/imgspruebas/ps4.jpeg',
+                    image: './imgs/imgspruebas/ps4.png',
                     available: true,
                     date: ' May 5, 2022, 9:05am EDT',
                     category: 'Juegos',
@@ -14,6 +15,7 @@ const app = Vue.createApp({
                 {
                     id: 2,
                     title: 'El actor Charlie Cox se confirma que seguirá  interpretando a daredevil',
+                    subtitle: 'Hola soy un subtitulo de la noticia',
                     description: 'Despues de participar en la serie de netflix y en la ultima pelicula de spiderman, el actor Charlie Cox se confirma que seguirá  interpretando a daredevil, según la compañía.',
                     image: './imgs/imgspruebas/daredevil.jpg',
                     available: true,
@@ -24,6 +26,7 @@ const app = Vue.createApp({
                 {
                     id: 3,
                     title: 'El anime spy x family se estrena en japón',
+                    subtitle: 'Hola soy un subtitulo de la noticia',
                     description: 'Hay una nueva serie de anime en japón, el anime spy x family, se estrena en japón el dia 5 de mayo. Se trata de una serie de accion basada en el manga spy x family.',
                     image: './imgs/imgspruebas/spyxfamily.jpg',
                     available: true,
@@ -34,6 +37,7 @@ const app = Vue.createApp({
                 {
                     id: 4,
                     title: 'XBOX, la consola mas potente del mundo',
+                    subtitle: 'Hola soy un subtitulo de la noticia',
                     description: 'Segun un nuevo estudio, la consola Xbox One X es la mas potente del mundo, y se espera que llegue a los 10 millones de dólares.',
                     image: './imgs/imgspruebas/xbox.jpg',
                     available: true,

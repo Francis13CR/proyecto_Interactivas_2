@@ -35,6 +35,9 @@ app.component('news-cards', {
             type: Number,
             required: true,
             default: 0
+        },
+        subtitle: {
+            type: String,
         }
     },
     template: 
@@ -44,12 +47,14 @@ app.component('news-cards', {
     <div class="col-md-4"  v-if="index>0">
         <div class="card  mb-2 card-margin h-100" >
         <img class="card-img-top  img-fluid img-fix" :src="image" alt = "Card image cap" >
-            <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
-                <hr>
-                
-                <p class="card-text"><small class="text-muted">{{date}}</small></p>
+            <div class=" card-img-overlay text-white d-flex flex-column justify-content-center">
+                <h5 class="card-title pb-4">{{title}}</h5>
+                <h6 class="card-subtitle mb-2 ">{{subtitle}}</h6>
+                <p class="card-text"><small >{{date}}</small></p>
                 <p class="card-text card-likes"> <i class="material-icons ">favorite</i><br>{{likes}}</p>
+                <div class="link d-flex">
+                    <a href="#" class="card-link text-warning">Read More</a>
+                    </div>
             </div>
         
         </div>
@@ -60,7 +65,7 @@ app.component('news-cards', {
                      <div class="col-md-8">
                          <a href="vistaNoticia.html"><img :src="image" class=" img-fluid rounded-start" alt="..."></a>
                      </div>
-                     <div class="col-md-4">
+                     <div class=" col-md-4">
                          <div class="card-body">
                              <h5 class="card-title font">{{title}}</h5>
                         

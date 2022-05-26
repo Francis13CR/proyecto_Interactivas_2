@@ -31,9 +31,14 @@
   bottom: 13%;
 }
 .img-fix {
-  max-height: 45%;
+  max-height: 100%;
 }
-
+.card{
+  max-height: 70%;
+}
+.card-img-overlay {
+  background-color: rgba(variables.$bg_color, 0.5);
+}
 // login
 
 .card-form {
