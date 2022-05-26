@@ -23,6 +23,7 @@
 }
 
 .card-likes {
+  display: inline;
   position: relative;
   left: 95%;
   bottom: 13%;
@@ -81,6 +82,9 @@
 
   .nav-hidden{
     visibility: hidden;
+  }
+  .card-margin{
+    margin-top: 20%;
   }
 
 

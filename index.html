@@ -21,7 +21,7 @@
     <div class="container-fluid" id="app">
 
         <header class="row justify-content-center">
-            <nav class="fixed-top nav-margin bg-nav nav-style" aria-label="main navigation">
+            <nav class="mb-5 fixed-top nav-margin bg-nav nav-style" aria-label="main navigation">
                 <a class="navbar-brand  nav-title" href="#">Geeknews</a>
                 <ul class="nav justify-content-center nav-hidden">
                     <li class="nav-item">
@@ -50,8 +50,10 @@
                 <!--Boton de menu lateral-->
                 <button class="btn-offcanvas btn btn-outline-light position-absolute bottom-50 end-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Menu</button>
 
+
 <div class=" offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
+
     
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -89,7 +91,7 @@
         
         
         <!--noticias normales-->
-        <div class="row">
+        <div class="row mt-5">
              <news-cards v-for="(n,index) in news" :index="index" :title="n.title" :image="n.image" :date="n.date"
                   :likes="n.likes">
              </news-cards>
