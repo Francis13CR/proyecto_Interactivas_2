@@ -17,11 +17,13 @@
      <title>Geeknews</title>
 </head>
 <body>
+    
     <div class="container-fluid" id="app">
+
         <header class="row justify-content-center">
-            <nav class="fixed-top nav-margin bg-nav nav-style " aria-label="main navigation">
+            <nav class="fixed-top nav-margin bg-nav nav-style" aria-label="main navigation">
                 <a class="navbar-brand  nav-title" href="#">Geeknews</a>
-                <ul class="nav justify-content-center">
+                <ul class="nav justify-content-center nav-hidden">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
@@ -43,9 +45,48 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registro.html">Regístrate</a>
                     </li>
+                    
                 </ul>
+                <!--Boton de menu lateral-->
+                <button class="btn-offcanvas btn btn-outline-light position-absolute bottom-50 end-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Menu</button>
+
+<div class=" offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+    
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body bg-nav">
+        <ul class="list-unstyled">
+    <li>
+        <a class="nav-link" href="">Juegos</a>
+        </li>
+    <li>
+        <a class="nav-link" href="">Anime</a>
+        </li>
+    <li>
+        <a class="nav-link" href="">Series</a>
+        </li>
+    <li>
+        <a class="nav-link" href="">Peliculas</a>
+        
+    </li>
+        </ul>
+    <hr class="bg-light">
+    <ul class="list-unstyled">
+    <li>
+        <a class="nav-link" href="login.html">Iniciar sesión</a>
+    </li>
+    <li>
+        <a class="nav-link" href="registro.html">Regístrate</a>
+    </li>
+</ul>
+  </div>
+</div>
+
+<!--Boton de menu lateral fin-->
             </nav>
         </header>
+        
         
         <!--noticias normales-->
         <div class="row">
@@ -54,6 +95,8 @@
              </news-cards>
         </div>
     </div>
+
+    
     <script src="js/main.js"></script>
     <script src="js/components/newsCards.js"></script>
     <script>
