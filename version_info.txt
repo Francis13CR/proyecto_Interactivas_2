@@ -30,3 +30,10 @@ v1.0.6
    sleccionada
    -Se ahgrega el meetodo showNewsDetails en el main.js
    -Se agrega la imagen default-image.webp la cual se mostrara cuando no se encuentre la imagen de la noticia
+v1.0.7
+    -Se corrige la posicion de las cards con un display inline en el boton de like que hace que no se expanda la pagina hacia los lados
+    en la version mobil
+    -Se agrego un menu de hamburguesa visible unicamente en version movil, no afecta el funcionamiento del nav en la version escritorio
+    -Ahora al entrar en la version movil en la pagina principal se oculta el menu del header al ser visible el menu de hamburguesa
+    -se agregan cambios en el media query para que los cards no queden por debajo del nav, mayor margin top en los cards unicamente
+    para la version movil.
