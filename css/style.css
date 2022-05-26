@@ -68,7 +68,7 @@
 /*Esto es para que el menu de hamburguesa aparezca solo en version mobil*/
 .btn-offcanvas{
   visibility: hidden;
-
+  margin-bottom: -0.5em;
 }
 
 
