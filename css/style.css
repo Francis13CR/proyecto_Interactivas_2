@@ -29,8 +29,10 @@
   max-height: 100%;
 }
 
-.card {
-  max-height: 70%;
+.card img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .card-img-overlay {

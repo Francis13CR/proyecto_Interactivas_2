@@ -44,17 +44,14 @@ app.component('news-cards', {
     /*html*/
     
     `
-    <div class="col-md-4"  v-if="index>0">
-        <div class="card  mb-2 card-margin h-100" >
+    <div class="col-md-4 mb-3"  v-if="index>0">
+        <div class="card mb-5 card-margin h-100" >
         <img class="card-img-top  img-fluid img-fix" :src="image" alt = "Card image cap" >
-            <div class=" card-img-overlay text-white d-flex flex-column justify-content-center">
+            <div class=" card-img-overlay text-white ">
                 <h5 class="card-title pb-4">{{title}}</h5>
                 <h6 class="card-subtitle mb-2 ">{{subtitle}}</h6>
                 <p class="card-text"><small >{{date}}</small></p>
-                <p class="card-text card-likes"> <i class="material-icons ">favorite</i><br>{{likes}}</p>
-                <div class="link d-flex">
-                    <a href="#" class="card-link text-warning">Read More</a>
-                    </div>
+                <p class="card-text  "> <i class="material-icons ">favorite</i><br>{{likes}}</p>
             </div>
         
         </div>
