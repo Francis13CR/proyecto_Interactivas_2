@@ -14,6 +14,9 @@
 .card-margin {
   margin-top: 10%;
 }
+.nav-hidden{
+  visibility: visible;
+}
 
 .card-hidden {
   display: none !important;
@@ -69,6 +72,28 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}/*# sourceMappingURL=style.css.map */
+
+
+/*Esto es para que el menu de hamburguesa aparezca solo en version mobil*/
+.btn-offcanvas{
+  visibility: hidden;
+  margin-bottom: -0.5em;
+  margin-right: 1em;
 }
 
+
+
+@media only screen and (max-width: 768px) {
+  .btn-offcanvas{
+    visibility: visible;
+  }
+
+  .nav-hidden{
+    visibility: hidden;
+  }
+  .card-margin{
+    margin-top: 20%;
+  }
+}
 /*# sourceMappingURL=style.css.map */
