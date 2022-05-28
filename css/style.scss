@@ -5,6 +5,10 @@
 .bg-nav {
   background-color: variables.$bg_color;
 }
+//gris oscuro para el fondo de la pagina
+.bgd-dark {
+  background-color: variables.$bg_dark;
+}
 
 //para los estilos del nav
 .nav-style {
@@ -33,6 +37,10 @@
 .img-fix {
   max-height: 100%;
 }
+.img-details {
+  height: 75%;
+
+}
 .card{
   //hacer que el img quepa en el card
   img {
@@ -42,10 +50,30 @@
     height: 100%;
     
   }
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
 }
 .card-img-overlay {
   background-color: rgba(variables.$bg_color, 0.5);
 }
+
+.card:hover {
+  cursor: pointer;
+  //insertar una animacion
+  transition: 0.4s;
+  box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.9);
+  filter: brightness(0.8);
+
+}
+//cuando se ponga el mouse encima,se esconda el overlay y aparezca el boton de likes
+.card:hover .overlay {
+  display: none;
+  //cambiar el cursor
+  cursor: pointer;
+  transition: 0.5s;
+  
+}
+
+
 // login
 
 .card-form {
@@ -79,6 +107,29 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+.nav-hidden{
+  visibility: visible;
+}
+/*Esto es para que el menu de hamburguesa aparezca solo en version mobil*/
+.btn-offcanvas{
+  visibility: hidden;
+  margin-bottom: -0.5em;
+  margin-right: 1em;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .btn-offcanvas{
+    visibility: visible;
+  }
+
+  .nav-hidden{
+    visibility: hidden;
+  }
+  .card-margin{
+    margin-top: 20%;
+  }
 }
 
 

@@ -2,6 +2,10 @@
   background-color: #2E193F;
 }
 
+.bgd-dark {
+  background-color: #333333;
+}
+
 .nav-style a {
   color: white;
 }
@@ -13,9 +17,6 @@
 
 .card-margin {
   margin-top: 10%;
-}
-.nav-hidden{
-  visibility: visible;
 }
 
 .card-hidden {
@@ -32,6 +33,13 @@
   max-height: 100%;
 }
 
+.img-details {
+  height: 75%;
+}
+
+.card {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+}
 .card img {
   object-fit: cover;
   width: 100%;
@@ -40,6 +48,19 @@
 
 .card-img-overlay {
   background-color: rgba(46, 25, 63, 0.5);
+}
+
+.card:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.9);
+  filter: brightness(0.8);
+}
+
+.card:hover .overlay {
+  display: none;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .card-form {
@@ -72,28 +93,31 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-}/*# sourceMappingURL=style.css.map */
+}
 
+.nav-hidden {
+  visibility: visible;
+}
 
 /*Esto es para que el menu de hamburguesa aparezca solo en version mobil*/
-.btn-offcanvas{
+.btn-offcanvas {
   visibility: hidden;
   margin-bottom: -0.5em;
   margin-right: 1em;
 }
 
-
-
 @media only screen and (max-width: 768px) {
-  .btn-offcanvas{
+  .btn-offcanvas {
     visibility: visible;
   }
 
-  .nav-hidden{
+  .nav-hidden {
     visibility: hidden;
   }
-  .card-margin{
+
+  .card-margin {
     margin-top: 20%;
   }
 }
+
 /*# sourceMappingURL=style.css.map */

@@ -47,14 +47,21 @@ const app = Vue.createApp({
                 },
               
             ],
-            new_most_liked: [],
+            show_notice_details:false,
             selectedItem:0,
         }
     },
     methods: {
         showIndex(index){
             this.selectedItem=index;
-               console.log("index -> "+ index);
+             
+           this.show_notice_details=true;
+      
+        },
+        home(i){
+            if(i==1){
+                this.show_notice_details=false;
+            }
         }
     },
     mounted() {

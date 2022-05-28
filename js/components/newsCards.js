@@ -19,7 +19,6 @@ app.component('news-cards', {
         },
         category: {
             type: String,
-            required: true,
         },
         likes: {
             type: Number,
@@ -28,7 +27,6 @@ app.component('news-cards', {
         },
         id: {
             type: Number,
-            required: true,
             default: 0
         },
         index: {
@@ -42,8 +40,8 @@ app.component('news-cards', {
     },
     methods:{
         clickNewsDetails(index){
-            console.log('news - index -> ' + index);
             this.$emit('clicknewsdetail', index);
+            
         }
         },
     template: 
@@ -51,9 +49,9 @@ app.component('news-cards', {
     
     `
     <div class="col-md-4 mb-3"  v-if="index>0">
-        <div class="card mb-5 card-margin h-100" >
-        <a href="vistaNoticia.html" v-on:click="clickNewsDetails(index)" ><img class="card-img-top  img-fluid img-fix" :src="image" alt = "Card image cap" ></a>
-            <div class=" card-img-overlay text-white ">
+        <div class="card mb-5 card-margin h-100 " @click="clickNewsDetails(index)" >
+        <img class="card-img-top  img-fluid img-fix pepe" :src="image" alt = "Card image cap" >
+            <div class=" card-img-overlay  overlay text-white ">
                 <h5 class="card-title pb-4">{{title}}</h5>
                 <h6 class="card-subtitle mb-2 ">{{subtitle}}</h6>
                 <p class="card-text"><small >{{date}}</small></p>
@@ -65,15 +63,15 @@ app.component('news-cards', {
     <div  v-else>
     
             <div class="card mb-3 card-margin">
-                <div class="row g-0">
-                     <div class="col-md-8">
-                         <a href="vistaNoticia.html" v-on:click="clickNewsDetails(index)" ><img :src="image" class=" img-fluid rounded-start" alt="..."></a>
+                <div class="row g-0" @click="clickNewsDetails(index)">
+                     <div class="col-md-12">
+                        <img :src="image" class=" img-fluid rounded-start" alt="...">
                      </div>
-                     <div class=" col-md-4">
-                         <div class="card-body">
-                         <a href="vistaNoticia.html" v-on:click="clickNewsDetails(index)" ><h5 class="card-title font">{{title}}</h5></a>
-                        
-                             <p class="card-text"><small class="text-muted">{{date}}</small></p>
+                     <div class="card-img-overlay text-white justify-content-center text-center">
+                        <div class="card-body">
+                            <h5 class="card-title font fs-1 mb-5">{{title}}</h5>
+                            <h6 class="card-subtitle mb-2 fs-3 ">{{subtitle}}</h6>
+                             <p class="card-text fs-4"><small>{{date}}</small></p>
                              <p> <i class="material-icons">favorite</i>{{likes}}</p>  
                          </div>
                      </div>
