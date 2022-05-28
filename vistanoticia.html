@@ -22,7 +22,7 @@
                 <a class="navbar-brand  nav-title" href="#">Geeknews</a>
                 <ul class="nav justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Juegos</a>
@@ -50,7 +50,9 @@
         <!-- inicio card -->
 
         <div class="justify-content-center">
-            <news-details></news-details>
+            <news-details :title="news[selectedItem].title"
+            :image="news[selectedItem].image" :date="news[selectedItem].date"
+             :description="news[selectedItem].description"></news-details>
         </div>
 
         permisito

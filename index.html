@@ -94,7 +94,7 @@
 
         <!--noticias normales-->
         <div class="row mt-5">
-            <news-cards v-for="(n,index) in news" :index="index" :subtitle="n.subtitle" :title="n.title" :image="n.image" :date="n.date" :likes="n.likes">
+            <news-cards v-for="(n,index) in news" :index="index" :subtitle="n.subtitle" :title="n.title" :image="n.image" :date="n.date" :likes="n.likes" @clicknewsdetail="showIndex">
             </news-cards>
         </div>
     </div>

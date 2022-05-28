@@ -47,10 +47,15 @@ const app = Vue.createApp({
                 },
               
             ],
-            new_most_liked: []
+            new_most_liked: [],
+            selectedItem:0,
         }
     },
     methods: {
+        showIndex(index){
+            this.selectedItem=index;
+               console.log("index -> "+ index);
+        }
     },
     mounted() {
         //ordenar por likes

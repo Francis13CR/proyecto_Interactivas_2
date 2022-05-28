@@ -40,13 +40,19 @@ app.component('news-cards', {
             type: String,
         }
     },
+    methods:{
+        clickNewsDetails(index){
+            console.log('news - index -> ' + index);
+            this.$emit('clicknewsdetail', index);
+        }
+        },
     template: 
     /*html*/
     
     `
     <div class="col-md-4 mb-3"  v-if="index>0">
         <div class="card mb-5 card-margin h-100" >
-        <img class="card-img-top  img-fluid img-fix" :src="image" alt = "Card image cap" >
+        <a href="vistaNoticia.html" v-on:click="clickNewsDetails(index)" ><img class="card-img-top  img-fluid img-fix" :src="image" alt = "Card image cap" ></a>
             <div class=" card-img-overlay text-white ">
                 <h5 class="card-title pb-4">{{title}}</h5>
                 <h6 class="card-subtitle mb-2 ">{{subtitle}}</h6>
@@ -57,17 +63,18 @@ app.component('news-cards', {
         </div>
     </div>
     <div  v-else>
+    
             <div class="card mb-3 card-margin">
                 <div class="row g-0">
                      <div class="col-md-8">
-                         <a href="vistaNoticia.html"><img :src="image" class=" img-fluid rounded-start" alt="..."></a>
+                         <a href="vistaNoticia.html" v-on:click="clickNewsDetails(index)" ><img :src="image" class=" img-fluid rounded-start" alt="..."></a>
                      </div>
                      <div class=" col-md-4">
                          <div class="card-body">
-                             <h5 class="card-title font">{{title}}</h5>
+                         <a href="vistaNoticia.html" v-on:click="clickNewsDetails(index)" ><h5 class="card-title font">{{title}}</h5></a>
                         
                              <p class="card-text"><small class="text-muted">{{date}}</small></p>
-                             <p> <i class="material-icons">favorite</i>{{likes}}</p>
+                             <p> <i class="material-icons">favorite</i>{{likes}}</p>  
                          </div>
                      </div>
                 </div>

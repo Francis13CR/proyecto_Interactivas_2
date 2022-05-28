@@ -8,6 +8,11 @@ app.component('news-details',{
             type: String,
             default: 'default text'
         },
+        likes: {
+            type: Number,
+            required: true,
+            default: 0
+        },
         image:{
             type: String,
             default: '../imgs/imgspruebas/default-image.webp'
@@ -34,7 +39,9 @@ app.component('news-details',{
                       <div class="justify-content-center ">
                          <h5 class="card-title text-center fw-bold fs-2">{{title}}</h5>
                          <img :src="image" class=" img-fluid  mx-auto" alt="...">
-                         <p class="card-text"><small class="text-muted">{{data}}</small></p>
+                         <p class="card-text"><small class="text-muted">{{date}}</small></p>
+                         <p class="card-text  "> <i class="material-icons ">favorite</i><br>{{likes}}</p>
+                         
                          <p class="card-text">{{category}}</p>
                          <p class="card-text">{{description}}</p>
                   
