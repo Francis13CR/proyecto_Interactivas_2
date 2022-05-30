@@ -92,7 +92,7 @@ app.component('news-cards', {
                                 <p class="card-text"><small>{{date}}</small></p>
                             </div>
                             <p>
-                              <button type="button" class="btn btn-primary btn-sm" @click="clickLike(index)">
+                              <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(index)">
                                 <i :id="index" class="fa-regular fa-thumbs-up " aria-hidden="true"></i>{{likes}}
                               </button>
                             </p>  

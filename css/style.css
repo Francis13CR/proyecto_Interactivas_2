@@ -156,6 +156,9 @@
   cursor: pointer;
 }
 
+
+
+
 @media only screen and (max-width: 768px) {
   .btn-offcanvas {
     visibility: visible;
@@ -166,11 +169,12 @@
   }
 
   .card-margin {
-    margin-top: 20%;
+    margin-top: 15%;
   }
 
   .card-likes {
     display: block;
+    
   }
 
   .icon_like {
@@ -188,8 +192,10 @@
     margin-top: 0.5rem !important;
     font-size: 0.7rem !important;
   }
+  
 
   .margin-notices {
     margin-top: 5rem !important;
   }
+
 }/*# sourceMappingURL=style.css.map */
