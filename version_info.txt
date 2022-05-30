@@ -48,4 +48,5 @@ v1.0.8
     -Se cambia el diseno de las cartas no principales, al poner el mouse encima: aparecen los botones de mas info y darle like 
     -En mobile este diseno cambia y los botones se muestran de una vez.
     -arreglos varios en los estilos, clases y orden de los divs
+    -cambios en el estilo del nav
     
