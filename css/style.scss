@@ -1,19 +1,26 @@
 //archivo con las clases globales del proyecto
 @use "variables";
 @use "mixin";
-//para el fondo del nav
+
 .bg-nav {
   background-color: variables.$bg_color;
 }
 //gris oscuro para el fondo de la pagina
-.bgd-dark {
+.body {
+  font-family: "Marvel", sans-serif;
   background-color: variables.$bg_dark;
 }
-
-//para los estilos del nav
+//*********************************navbar*****************************************
 .nav-style {
   a {
     color: white;
+    
+  }
+  a:link, a:visited {
+     color: white;
+  }
+  a:hover{
+    text-decoration: underline;
   }
   .nav-title {
     //usar funcion dentro de mixin
@@ -21,19 +28,22 @@
     position: relative;
     top: mixin.rem(30);
   }
+  .btn-nav:hover{
+    //hacer un subrayado al pasar el mouse
+    text-decoration: underline;
+  }
 }
-//cards
+//**********************************************cards**************************//
+.margin-notices {
+  margin-top:0rem!important;
+}
 .card-margin {
   margin-top: 10%;
 }
 .card-hidden {
   display: none !important;
 }
-.card-likes {
-  position: relative;
-  left: 95%;
-  bottom: 13%;
-}
+
 .img-fix {
   max-height: 100%;
 }
@@ -55,27 +65,45 @@
 .card-img-overlay {
   background-color: rgba(variables.$bg_color, 0.5);
 }
+.new-content{
+  margin-top:1rem;
+  h5{
+    font-size: 1.5rem;
+  }
+  h6{
+      margin-top: 0rem;
+      font-size: 1rem!important;
+    }
+    p{
+      margin-top: .5rem;
+      font-size: 1rem!important;
+    }
+}
 
 .card:hover {
-  cursor: pointer;
   //insertar una animacion
   transition: 0.4s;
   box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.9);
   filter: brightness(0.8);
 
 }
+.card-likes{
+  display: none;
+}
 //cuando se ponga el mouse encima,se esconda el overlay y aparezca el boton de likes
 .card:hover .overlay {
-  display: none;
-  //cambiar el cursor
-  cursor: pointer;
+  .new-content{
+    display: none;
+  }
+  .card-likes {
+    display: block;
+    position: relative;
+    top: 35%;
+    cursor: pointer;
+  }
   transition: 0.5s;
-  
 }
-
-
-// login
-
+//******************************login*******************************************
 .card-form {
   position: absolute;
   top: 50%;
@@ -118,6 +146,23 @@
   margin-right: 1em;
 }
 
+.principal-notice{
+  h5{
+    font-size: 3rem;
+  }
+  h6{
+      margin-top: 2rem;
+      font-size: 2rem!important;
+    }
+    p{
+      margin-top: 2rem;
+      font-size: 2rem!important;
+    }
+  
+}
+.principal-notice:hover{
+  cursor: pointer;
+}
 
 @media only screen and (max-width: 768px) {
   .btn-offcanvas{
@@ -129,6 +174,28 @@
   }
   .card-margin{
     margin-top: 20%;
+  }
+  .card-likes{
+    display: block;
+  }
+  .icon_like{
+    display: none;
+  }
+  .principal-notice {
+    h5{
+      font-size: 1rem!important;
+    }
+    h6{
+      margin-top: 0.5rem!important;
+      font-size: .7rem!important;
+    }
+    p{
+      margin-top: 0.5rem!important;
+      font-size: .7rem!important;
+    }
+  }
+  .margin-notices {
+  margin-top:5rem!important;
   }
 }
 

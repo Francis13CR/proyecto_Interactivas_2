@@ -37,3 +37,15 @@ v1.0.7
     -Ahora al entrar en la version movil en la pagina principal se oculta el menu del header al ser visible el menu de hamburguesa
     -se agregan cambios en el media query para que los cards no queden por debajo del nav, mayor margin top en los cards unicamente
     para la version movil.
+v1.0.8 
+    -Las categorias ahora se crean desde un array e iteran con v-for 
+    -Las noticias se filtran segun caterogias
+    -Se establece una tipografia (sujeta a cambios) para todo el documento
+    -El tamano de las tipografias cambian al estar en mobile, ademas se centra en las cards
+    -Se incluye fa-icons al proyecto 
+    -Se cambia el icono de los likes y se agrega la funcionalidad de que se pueda dar like a una noticia
+    -Se agrega el boton de mas info
+    -Se cambia el diseno de las cartas no principales, al poner el mouse encima: aparecen los botones de mas info y darle like 
+    -En mobile este diseno cambia y los botones se muestran de una vez.
+    -arreglos varios en los estilos, clases y orden de los divs
+    

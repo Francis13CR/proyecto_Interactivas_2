@@ -49,6 +49,25 @@ const app = Vue.createApp({
             ],
             show_notice_details:false,
             selectedItem:0,
+            all_news: [],
+            categories: [
+                {
+                    id: 1,
+                    name: 'Juegos'
+                },
+                {
+                    id: 2,
+                    name: 'Anime'
+                },
+                {
+                    id: 3,
+                    name: 'Peliculas'
+                },
+                {
+                    id: 4,
+                    name: 'Series'
+                }
+            ],
         }
     },
     methods: {
@@ -59,16 +78,63 @@ const app = Vue.createApp({
       
         },
         home(i){
+            this.news = this.all_news;
             if(i==1){
                 this.show_notice_details=false;
             }
-        }
+        },
+        likeCard(index){
+            
+            //verificar si la noticia ya fue dada like
+            if(document.getElementById(index ).classList.contains('fa')){
+               //le quito el like
+                this.news[index].likes--;
+                document.getElementById(index).classList.remove('fa');
+                document.getElementById(index).classList.add('fa-regular');
+            }else{
+                this.news[index].likes++;
+                //eliminar la clase del boton
+                document.getElementById(index).classList.remove('fa-regular');
+                // agregar la clase del boton
+                document.getElementById(index).classList.add('fa');
+            }
+        },
+        showNoticeByCategory(category) {
+            console.log(category);
+            if (category == 'all') {
+                this.news = this.all_news;
+            } else {
+                this.news = this.all_news;
+                let filterNews = this.news.filter(function (news) {
+                    return news.category === category;
+                })
+                if(filterNews.length>0){
+                    this.news = filterNews;
+                }else{
+                    this.news = [
+                        {
+                            id: 999,
+                            title: 'No hay noticias para esta categoria',
+                            subtitle: 'Nuevas noticias estaran disponibles pronto',
+                            description: 'Las noticias de esta categoria estaran disponibles pronto',
+                            image: './imgs/imgspruebas/dino.jpg',
+                            available: true,
+                            date: ' May 5, 2022, 9:05am EDT',
+                            category: '',
+                            likes: 0
+                        }
+                    ]
+                }
+            }
+            this.selectedItem = 0;
+        },
     },
     mounted() {
         //ordenar por likes
         this.news.sort(function (a, b) {
             return b.likes - a.likes;
         });
+        this.all_news = this.news;
     },
     computed: {
     },
