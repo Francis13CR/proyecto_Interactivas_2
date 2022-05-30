@@ -49,4 +49,6 @@ v1.0.8
     -En mobile este diseno cambia y los botones se muestran de una vez.
     -arreglos varios en los estilos, clases y orden de los divs
     -cambios en el estilo del nav
-    
+v1.0.9
+    -El boton de like de la noticia principal tiene un outline
+    -se agrego un shadow box al nav
