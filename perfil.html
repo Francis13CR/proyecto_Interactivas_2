@@ -7,19 +7,82 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     crossorigin="anonymous">
 
+    <!-- icon perfil -->
+
+    
+
     <!-- css -->
 
     <link rel="stylesheet" href="css/style.css">
     <title>Perfil</title>
 </head>
-<body class="bgd-dark">
-    <div class="conteiner-fluid p-5  text-white">
+<body class="bg-dark">
+    <div class="conteiner-fluid p-5  " id="app">
+        <header class="row justify-content-center ">
+            <nav class="mb-1 fixed-top  bg-nav nav-style shadow rounded" aria-label="main navigation">
+                <a class="navbar-brand  nav-title" href="javascript:void(0);" @click="home(1)">Geeknews</a>
+                <ul class="nav justify-content-center nav-hidden">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="javascript:void(0);"
+                            @click="home(1)">Home</a>
+                    </li>
+                    <li v-for="(c, index) in categories" class="nav-item">
+                        <button class="btn text-white btn-nav"
+                            @click="showNoticeByCategory(c.name)">{{c.name}}</button>
+                    </li>
+                    <div class="d-flex ">
+                        <li class="nav-item login justify-content-end ">
+                            <a class="nav-link" href="login.html">Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item justify-content-end ">
+                            <a class="nav-link" href="registro.html">Regístrate</a>
+                        </li>
+                    </div>
+                  
 
-        <h1 class="mx-3 mb-3">Perfil</h1>
-        <h2 class="text-center border-top border-bottom fs-4 ">Configuración</h2>
+                </ul>
+                <!--Boton de menu lateral-->
+                <button class="btn-offcanvas btn btn-outline-light position-absolute bottom-50 end-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Menu</button>
+                <div class=" offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body bg-nav">
+                        <ul class="list-unstyled">
+                            <li v-for="(c, index) in categories" class="nav-item">
+                                <button class="btn text-white" @click="clickNewsCategory(name)">{{c.name}}</button>
+                            </li>
+                        </ul>
+                        <hr class="bg-light">
+                        <ul class="list-unstyled ">
+                            <li>
+                                <a class="nav-link" href="login.html">Iniciar sesión</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="registro.html">Regístrate</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Boton de menu lateral fin-->
+            </nav>
+        </header>
 
-        <div class="">
-            <p m-5>Categorias que Sigues</p>
+
+
+        <div class="mt-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="80" height="80" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="12" cy="10" r="3" />
+                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+              </svg>
+        </div>
+        <h1 class="mx-3 mb-3  text-white">Perfil</h1>
+        <h2 class="text-center border-top border-bottom fs-4 mb-3  text-white">Configuración</h2>
+
+        <div class=" text-white">
+            <p class="m-5 ">Categorias que Sigues</p>
             <div class="row">
                 <div class="d-flex flex-row bd-highlight mb-3">
                     <div class="p-2 bd-highlight">Anime</div>
@@ -29,7 +92,7 @@
                   </div>
               </div>
         </div>
-           <div class="mt-5">
+           <div class="mt-5  text-white">
                <form action="">
                    <p class="mb-4">Cambio de Contraseña</p>
                    <div class="mb-3">
@@ -39,7 +102,13 @@
                </form>
            </div>
 
-           <button type="button" class="btn btn-outline-success">Guardar Cambios</button>
+           <button type="button" class="btn btn-outline-info">Guardar Cambios</button>
     </div>
+
+    <script src="js/main.js"></script>
+   
+    <script>
+        const mountedApp = app.mount("#app");
+    </script>
 </body>
 </html>

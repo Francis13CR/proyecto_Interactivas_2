@@ -112,11 +112,14 @@
   margin-top: 6rem;
 }
 //******************************login*******************************************
+.bg-login{
+  background-color: rgba($color: #97bbe8, $alpha: .3);
+}
 .card-form {
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: variables.$bg_color;
+  background-color: rgba($color: variables.$bg_dark, $alpha: .5) ;
   color: aliceblue;
   transform: translate(-50%, -50%);
   font-family: "Marvel", sans-serif;
@@ -136,14 +139,6 @@
   }
 }
 
-.img{
-  background-color: variables.$bg_dark;
-  height: 100vh;
-    width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
 .nav-hidden{
   visibility: visible;
 }

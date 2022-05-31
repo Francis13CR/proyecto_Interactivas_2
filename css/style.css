@@ -103,11 +103,15 @@
   margin-top: 6rem;
 }
 
+.bg-login {
+  background-color: rgba(151, 187, 232, 0.3);
+}
+
 .card-form {
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: #2E193F;
+  background-color: rgba(51, 51, 51, 0.5);
   color: aliceblue;
   transform: translate(-50%, -50%);
   font-family: "Marvel", sans-serif;
@@ -124,15 +128,6 @@
 }
 .form-btn:hover {
   background-color: #97bbe8;
-}
-
-.img {
-  background-color: #333333;
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
 .nav-hidden {

@@ -52,3 +52,9 @@ v1.0.8
 v1.0.9
     -El boton de like de la noticia principal tiene un outline
     -se agrego un shadow box al nav
+
+v1.0.10
+    -Se termina el diseño de la vista noticias
+    -login y registro terminados
+    -se cree la pagina para el administrador
+    -perfil esta en un 60% 
