@@ -65,8 +65,9 @@ app.component('news-cards', {
                 </div>
                 <p class="card-likes">
                     <button type="button" class="btn btn-outline-info btn-sm " @click="clickNewsDetails(index)">
-                        <i class="fa-solid fa-eye text-white" aria-hidden="true"></i><span class="text-white">Detalles</span>
-                    </button>
+                    <i class="fa-solid fa-eye text-white" aria-hidden="true"></i><span class="text-white">Detalles</span>
+                       
+                        </button>
                 </p>
                 <p class="mt-1 card-likes ">
                     <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(index)">

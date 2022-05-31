@@ -71,24 +71,15 @@
                 <!--Boton de menu lateral fin-->
             </nav>
         </header>
-            <!--noticias normales-->
-        <div v-show="!show_notice_details" class="row margin-notices">
-            <news-cards v-for="(n,index) in news" :index="index" :subtitle="n.subtitle" :title="n.title"
-                :image="n.image" :date="n.date" :likes="n.likes" @clicknewsdetail="showIndex" @clicklike="likeCard">
-            </news-cards>
-        </div>
+       
         <!-- detalles de noticias-->
-        <div v-show="show_notice_details" class="row margin-notices">
-            <news-details :title="news[selectedItem].title" :image="news[selectedItem].image" :likes="news[selectedItem].likes"
-                :date="news[selectedItem].date" :description="news[selectedItem].description" @closnotice="home">
-                </news-details>
-        </div>
+        
         
     </div>
 
 
     <script src="js/main.js"></script>
-    <script src="js/components/newsCards.js"></script>
+
     <script src="js/components/NewsDetails.js"></script>
     <script>
         const mountedApp = app.mount("#app");

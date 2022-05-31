@@ -43,6 +43,8 @@
 
 .img-details {
   height: 75%;
+  margin-right: 6rem;
+  align-items: center;
 }
 
 .card {
@@ -95,6 +97,10 @@
   position: relative;
   top: 35%;
   cursor: pointer;
+}
+
+.margin-card {
+  margin-top: 6rem;
 }
 
 .card-form {
@@ -156,9 +162,6 @@
   cursor: pointer;
 }
 
-
-
-
 @media only screen and (max-width: 768px) {
   .btn-offcanvas {
     visibility: visible;
@@ -169,12 +172,11 @@
   }
 
   .card-margin {
-    margin-top: 15%;
+    margin-top: 20%;
   }
 
   .card-likes {
     display: block;
-    
   }
 
   .icon_like {
@@ -192,10 +194,8 @@
     margin-top: 0.5rem !important;
     font-size: 0.7rem !important;
   }
-  
 
   .margin-notices {
     margin-top: 5rem !important;
   }
-
 }/*# sourceMappingURL=style.css.map */

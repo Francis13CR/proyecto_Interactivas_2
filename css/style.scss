@@ -12,6 +12,7 @@
 }
 //*********************************navbar*****************************************
 .nav-style {
+
   a {
     color: white;
     
@@ -33,6 +34,7 @@
     text-decoration: underline;
   }
 }
+
 //**********************************************cards**************************//
 .margin-notices {
   margin-top:0rem!important;
@@ -49,6 +51,8 @@
 }
 .img-details {
   height: 75%;
+  margin-right: 6rem;
+  align-items: center;
 
 }
 .card{
@@ -102,6 +106,10 @@
     cursor: pointer;
   }
   transition: 0.5s;
+}
+
+.margin-card{
+  margin-top: 6rem;
 }
 //******************************login*******************************************
 .card-form {
