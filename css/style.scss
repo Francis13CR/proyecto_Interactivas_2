@@ -1,208 +1,219 @@
 //archivo con las clases globales del proyecto
 @use "variables";
 @use "mixin";
-
+@use "typography";
 .bg-nav {
-  background-color: variables.$bg_color;
+    background-color: variables.$bg_color;
 }
+
 //gris oscuro para el fondo de la pagina
 .body {
-  font-family: "Marvel", sans-serif;
-  background-color: variables.$bg_dark;
+    font-family: variables.$ff-sans;
+    background-color: variables.$bg_dark;
 }
+
 //*********************************navbar*****************************************
 .nav-style {
-
-  a {
-    color: white;
-    
-  }
-  a:link, a:visited {
-     color: white;
-  }
-  a:hover{
-    text-decoration: underline;
-  }
-  .nav-title {
-    //usar funcion dentro de mixin
-    padding-left: mixin.rem(5);
-    position: relative;
-    top: mixin.rem(30);
-  }
-  .btn-nav:hover{
-    //hacer un subrayado al pasar el mouse
-    text-decoration: underline;
-  }
+    a {
+        color: white;
+    }
+    a:link,
+    a:visited {
+        color: white;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .nav-title {
+        //usar funcion dentro de mixin
+        padding-left: mixin.rem(5);
+        position: relative;
+        top: mixin.rem(30);
+    }
+    .btn-nav:hover {
+        //hacer un subrayado al pasar el mouse
+        text-decoration: underline;
+    }
 }
 
 //**********************************************cards**************************//
 .margin-notices {
-  margin-top:0rem!important;
+    margin-top: 0rem!important;
 }
+
 .card-margin {
-  margin-top: 10%;
+    margin-top: 10%;
 }
+
 .card-hidden {
-  display: none !important;
+    display: none !important;
 }
 
 .img-fix {
-  max-height: 100%;
+    max-height: 100%;
 }
-.img-details {
-  height: 75%;
-  margin-right: 6rem;
-  align-items: center;
 
+.img-details {
+    height: 75%;
+    margin-right: 6rem;
+    align-items: center;
 }
-.card{
-  //hacer que el img quepa en el card
-  img {
-    //zoom  para que quepa
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    
-  }
-  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
-}
-.card-img-overlay {
-  background-color: rgba(variables.$bg_color, 0.5);
-}
-.new-content{
-  margin-top:1rem;
-  h5{
-    font-size: 1.5rem;
-  }
-  h6{
-      margin-top: 0rem;
-      font-size: 1rem!important;
+
+.card {
+    //hacer que el img quepa en el card
+    img {
+        //zoom  para que quepa
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
     }
-    p{
-      margin-top: .5rem;
-      font-size: 1rem!important;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.tp-serif {
+    font-family: variables.$ff-serif;
+    font-weight: variables.$fw-bold;
+}
+
+.card-img-overlay {
+    background-color: rgba(variables.$bg_color, 0.5);
+}
+
+.new-content {
+    margin-top: 1rem;
+    h5 {
+        @include typography.set-font(variables.$ff-serif, variables.$fw-bold, variables.$fs-sm);
+        font-size: 1.5rem;
+    }
+    h6 {
+        margin-top: 0rem;
+        font-size: 1rem!important;
+    }
+    p {
+        margin-top: .5rem;
+        font-size: 1rem!important;
     }
 }
 
 .card:hover {
-  //insertar una animacion
-  transition: 0.4s;
-  box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.9);
-  filter: brightness(0.8);
+    //insertar una animacion
+    transition: 0.4s;
+    box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.9);
+    filter: brightness(0.8);
+}
 
+.card-likes {
+    display: none;
 }
-.card-likes{
-  display: none;
-}
+
 //cuando se ponga el mouse encima,se esconda el overlay y aparezca el boton de likes
 .card:hover .overlay {
-  .new-content{
-    display: none;
-  }
-  .card-likes {
-    display: block;
-    position: relative;
-    top: 35%;
-    cursor: pointer;
-  }
-  transition: 0.5s;
+    .new-content {
+        display: none;
+    }
+    .card-likes {
+        display: block;
+        position: relative;
+        top: 35%;
+        cursor: pointer;
+    }
+    transition: 0.5s;
 }
 
-.margin-card{
-  margin-top: 6rem;
+.margin-card {
+    margin-top: 6rem;
 }
+
 //******************************login*******************************************
-.bg-login{
-  background-color: rgba($color: #97bbe8, $alpha: .3);
+.bg-login {
+    background-color: rgba($color: #97bbe8, $alpha: .3);
 }
+
 .card-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background-color: rgba($color: variables.$bg_dark, $alpha: .5) ;
-  color: aliceblue;
-  transform: translate(-50%, -50%);
-  font-family: "Marvel", sans-serif;
-  width: 356px;
-  padding: 50px 30px;
-  border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: rgba($color: variables.$bg_dark, $alpha: .5);
+    color: aliceblue;
+    transform: translate(-50%, -50%);
+    font-family: "Marvel", sans-serif;
+    width: 356px;
+    padding: 50px 30px;
+    border-radius: 5px;
 }
 
 .form-btn {
-  display: block;
-  width: 50%;
-  color: #97bbe8;
-  border: 1px solid #97bbe8;
-
-  &:hover {
-    background-color: #97bbe8;
-  }
+    display: block;
+    width: 50%;
+    color: #97bbe8;
+    border: 1px solid #97bbe8;
+    &:hover {
+        background-color: #97bbe8;
+    }
 }
 
-.nav-hidden{
-  visibility: visible;
+.nav-hidden {
+    visibility: visible;
 }
+
+
 /*Esto es para que el menu de hamburguesa aparezca solo en version mobil*/
-.btn-offcanvas{
-  visibility: hidden;
-  margin-bottom: -0.5em;
-  margin-right: 1em;
+
+.btn-offcanvas {
+    visibility: hidden;
+    margin-bottom: -0.5em;
+    margin-right: 1em;
 }
 
-.principal-notice{
-  h5{
-    font-size: 3rem;
-  }
-  h6{
-      margin-top: 2rem;
-      font-size: 2rem!important;
+.principal-notice {
+    h5 {
+        @include typography.set-font(variables.$ff-serif, variables.$fw-bold, variables.$fs-s);
+        font-size: 3rem;
     }
-    p{
-      margin-top: 2rem;
-      font-size: 2rem!important;
+    h6 {
+        margin-top: 2rem;
+        font-size: 2rem!important;
     }
-  
+    p {
+        margin-top: 2rem;
+        font-size: 2rem!important;
+    }
 }
-.principal-notice:hover{
-  cursor: pointer;
+
+.principal-notice:hover {
+    cursor: pointer;
 }
-
-
-
 
 @media only screen and (max-width: 768px) {
-  .btn-offcanvas{
-    visibility: visible;
-  }
-
-  .nav-hidden{
-    visibility: hidden;
-  }
-  .card-margin{
-    margin-top: 20%;
-  }
-  .card-likes{
-    display: block;
-  }
-  .icon_like{
-    display: none;
-  }
-  .principal-notice {
-    h5{
-      font-size: 1rem!important;
+    .btn-offcanvas {
+        visibility: visible;
     }
-    h6{
-      margin-top: 0.5rem!important;
-      font-size: .7rem!important;
+    .nav-hidden {
+        visibility: hidden;
     }
-    p{
-      margin-top: 0.5rem!important;
-      font-size: .7rem!important;
+    .card-margin {
+        margin-top: 20%;
     }
-  }
-  .margin-notices {
-  margin-top:5rem!important;
-  }
+    .card-likes {
+        display: block;
+    }
+    .icon_like {
+        display: none;
+    }
+    .principal-notice {
+        h5 {
+            font-size: 1rem!important;
+        }
+        h6 {
+            margin-top: 0.5rem!important;
+            font-size: .7rem!important;
+        }
+        p {
+            margin-top: 0.5rem!important;
+            font-size: .7rem!important;
+        }
+    }
+    .margin-notices {
+        margin-top: 5rem!important;
+    }
 }
-
-

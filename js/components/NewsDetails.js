@@ -1,10 +1,10 @@
-app.component('news-details',{
-    props:{
-        title:{
+app.component('news-details', {
+    props: {
+        title: {
             type: String,
             default: 'default text'
         },
-        category:{
+        category: {
             type: String,
             default: 'default text'
         },
@@ -13,36 +13,36 @@ app.component('news-details',{
             required: true,
             default: 0
         },
-        image:{
+        image: {
             type: String,
             default: '../imgs/imgspruebas/default-image.webp'
         },
-        date:{
+        date: {
             type: String,
             default: 'default text'
         },
-        description:{
+        description: {
             type: String,
             default: 'lorem ipsum default text '
-           
+
         }
     },
-    methods:{
-        close(i){
+    methods: {
+        close(i) {
             this.$emit('closnotice', i);
         }
     },
-  template:
-       /*html*/
-    `
+    template:
+    /*html*/
+        `
         <div class="  ">
           <div class="col-12">
              <div class="mt-5 ">
                   <div class="row g-0">
                         
                       <div class="justify-content-center text-white ">
-                      <button class="btn btn-primary mt-2 p-1 btn-sm " @click="close(1)"><i class="material-icons ">arrow_back</i></button>
-                         <h5 class="card-title text-center fw-bold fs-2 ">{{title}}</h5>
+                      <button class="btn btn-primary mt-4 p-1 btn-sm " @click="close(1)"><i class="material-icons ">arrow_back</i></button>
+                         <h5 class="card-title text-center tp-serif fs-2 ">{{title}}</h5>
                          <img :src="image" class="mt-2 img-fluid img-details mx-auto d-block mx-5 shadow" alt="...">
                          <p class="card-text text-center"><small class="text-muted">{{date}}</small></p>
                          <p class="card-text text-center  "> <i class="material-icons ">favorite</i>{{likes}}</p>
@@ -87,5 +87,5 @@ app.component('news-details',{
 
 
          
-    `  
+    `
 });

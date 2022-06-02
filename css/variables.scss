@@ -1,6 +1,24 @@
 //archivo con las variables globales del proyecto
-
 //colores
 $bg_color :#2E193F;
 $bg_dark :#333333;
+$clr-white: #FFFFFF;
 
+/*font-sizes*/
+
+$fs-base: 0.875;
+$fs-s: 1.2rem; //14px
+$fs-sm: 1.5rem; //24px
+$fs-xmed: 3.125rem; //50px
+
+/*font-families*/
+
+$ff-sans: 'Heebo',
+sans-serif;
+$ff-serif: 'Merriweather',
+serif;
+
+/*font-weights*/
+
+$fw-reg: 400;
+$fw-bold: 900;
