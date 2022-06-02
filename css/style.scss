@@ -75,6 +75,14 @@
     font-weight: variables.$fw-bold;
 }
 
+.fs-m {
+    font-size: variables.$fs-m;
+}
+
+.fs-mm {
+    font-size: variables.$fs-mm;
+}
+
 .card-img-overlay {
     background-color: rgba(variables.$bg_color, 0.5);
 }
@@ -126,7 +134,8 @@
 
 //******************************login*******************************************
 .bg-login {
-    background-color: rgba($color: #97bbe8, $alpha: .3);
+    //background-color: rgba($color: #97bbe8, $alpha: .3);
+    background-color: variables.$bg_color;
 }
 
 .card-form {
@@ -136,7 +145,7 @@
     background-color: rgba($color: variables.$bg_dark, $alpha: .5);
     color: aliceblue;
     transform: translate(-50%, -50%);
-    font-family: "Marvel", sans-serif;
+    //font-family: "Marvel", sans-serif;
     width: 356px;
     padding: 50px 30px;
     border-radius: 5px;
