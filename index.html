@@ -28,8 +28,8 @@
 <body class="body">
     <div class="container-fluid " id="app">
         <header class="row justify-content-center ">
-            <nav class="mb-1 fixed-top  bg-nav nav-style shadow rounded" aria-label="main navigation">
-                <a class="navbar-brand  nav-title" href="javascript:void(0);" @click="home(1)">Geeknews</a>
+            <nav class="mb-1 fixed-top  bg-nav nav-style shadow" aria-label="main navigation">
+                <a class="navbar-brand mx-5 nav-title" href="javascript:void(0);" @click="home(1)">Geeknews</a>
                 <ul class="nav justify-content-center nav-hidden">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="javascript:void(0);" @click="home(1)">Home</a>
@@ -37,7 +37,7 @@
                     <li v-for="(c, index) in categories" class="nav-item">
                         <button class="btn text-white btn-nav" @click="showNoticeByCategory(c.name)">{{c.name}}</button>
                     </li>
-                    <div class="d-flex ">
+                    <div class="d-flex mx-5 justify-content-end ">
                         <li class="nav-item login justify-content-end ">
                             <a class="nav-link" href="login.html">Iniciar sesión</a>
                         </li>
