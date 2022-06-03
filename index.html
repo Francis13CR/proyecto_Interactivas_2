@@ -57,7 +57,7 @@
                     <div class="offcanvas-body bg-nav">
                         <ul class="list-unstyled">
                             <li v-for="(c, index) in categories" class="nav-item">
-                                <button class="btn text-white" @click="clickNewsCategory(name)">{{c.name}}</button>
+                                <button class="btn text-white" @click="showNoticeByCategory(c.name)">{{c.name}}</button>
                             </li>
                         </ul>
                         <hr class="bg-light">
