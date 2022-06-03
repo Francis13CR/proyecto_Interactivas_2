@@ -56,7 +56,8 @@
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
 }
 .card img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
   height: 100%;
 }
@@ -218,5 +219,12 @@
     margin-top: 5rem !important;
   }
 }
+.form-input {
+  width: 25%;
+}
 
-/*# sourceMappingURL=style.css.map */
+@media only screen and (max-width: 768px) {
+  .form-input {
+    width: 50%;
+  }
+}/*# sourceMappingURL=style.css.map */
