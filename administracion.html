@@ -23,55 +23,52 @@
 </head>
 
 <body class="body">
-    <header class="row justify-content-center">
+    <header ">
+        <div class="container-fluid text-white mx-5" id="app"></div>
         <nav class="mb-5 nav-margin bg-nav nav-style" aria-label="main navigation">
             <a class="navbar-brand nav-title" href="#">Geeknews</a>
             <ul class="nav justify-content-center nav-hidden">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Listado de noticias</a>
+                    <a class="nav-link" href="listanoticias.html">Listado de noticias</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <div class="container-fluid text-white mx-5" id="app">
+    
+    <div class="container-fluid mx-5" id="app">
+        <form class="form-post">
 
+            <div class="row">
+                <div class="col-10 ">
+                    <div class="justify-content-center">
+                        <div class="mb-3">
+                            <label for="news_title" class="form-label">Titulo de la noticia</label>
+                            <textarea class="form-control bg-transparent" id="news_title" rows="1"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="news_imgp" class="form-label">Imagen Principal</label>
+                            <input class="form-control bg-transparent" type="file" id="news_imgp">
+                        </div>
 
+                        <!-- agregar categoria -->
 
-        <!-- formulario de noticia -->
-        <div class="container-form">
-
-            <form class="form-post">
-
-                <div class="row">
-                    <div class="col-10 ">
-                        <div class="justify-content-center">
-                            <div class="mb-3">
-                                <label for="news_title" class="form-label">Titulo de la noticia</label>
-                                <textarea class="form-control bg-transparent" id="news_title" rows="1"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="news_imgp" class="form-label">Imagen Principal</label>
-                                <input class="form-control bg-transparent" type="file" id="news_imgp">
-                            </div>
-
-                            <!-- agregar categoria -->
-
-                            <div class="mb-3">
-                                <label for="news_content" class="form-label">Contenido</label>
-                                <textarea class="form-control bg-transparent" id="news_content" rows="3"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="news_img_m" class="form-label">Más imagenes de la noticia</label>
-                                <input class="form-control bg-transparent" type="file" id="news_img_m" multiple>
-                            </div>
+                        <div class="mb-3">
+                            <label for="news_content" class="form-label">Contenido</label>
+                            <textarea class="form-control bg-transparent" id="news_content" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="news_img_m" class="form-label">Más imagenes de la noticia</label>
+                            <input class="form-control bg-transparent" type="file" id="news_img_m" multiple>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    <input class="btn btn-primary mt-2" type="submit" value="Enviar a revision">
-                </div>
-            </form>
+            <div>
+                <input class="btn btn-primary mt-2" type="submit" value="Enviar a revision">
+            </div>
+        </form>
+      
         </div>
         <!-- formulario de noticia -->
 

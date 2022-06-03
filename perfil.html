@@ -29,7 +29,7 @@
 <body class="body">
     <div class="conteiner-fluid p-5  " id="app">
         <header class="row justify-content-center ">
-            <nav class="mb-1 fixed-top  bg-nav nav-style shadow rounded" aria-label="main navigation">
+            <nav class="mb-5 fixed-top  bg-nav nav-style shadow" aria-label="main navigation">
                 <a class="navbar-brand  nav-title" href="javascript:void(0);" @click="home(1)">Geeknews</a>
                 <ul class="nav justify-content-center nav-hidden">
                     <li class="nav-item">
@@ -38,13 +38,7 @@
                     <li v-for="(c, index) in categories" class="nav-item">
                         <button class="btn text-white btn-nav" @click="showNoticeByCategory(c.name)">{{c.name}}</button>
                     </li>
-                    <div class="d-flex ">
-                        <li class="nav-item login justify-content-end ">
-                            <a class="nav-link" href="login.html">Iniciar sesión</a>
-                        </li>
-                        <li class="nav-item justify-content-end ">
-                            <a class="nav-link" href="registro.html">Regístrate</a>
-                        </li>
+                    <div class="d-flex">
                         <li class="nav-item justify-content-end ">
                             <a class="nav-link" href="perfil.html">Perfil</a>
                         </li>
@@ -67,12 +61,6 @@
                         <hr class="bg-light">
                         <ul class="list-unstyled ">
                             <li>
-                                <a class="nav-link" href="login.html">Iniciar sesión</a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="registro.html">Regístrate</a>
-                            </li>
-                            <li>
                                 <a class="nav-link" href="perfil.html">Perfil</a>
                             </li>
                         </ul>
@@ -83,7 +71,7 @@
         </header>
 
 
-<div class="perfil">
+<div class="perfil mt-5">
 
 
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle mt-5 mx-auto d-block"

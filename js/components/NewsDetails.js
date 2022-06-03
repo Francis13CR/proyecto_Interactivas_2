@@ -40,22 +40,21 @@ app.component('news-details', {
              <div class="mt-5 ">
                   <div class="row g-0">
                         
-                      <div class="justify-content-center text-white ">
+                      <div class="justify-content-center">
                       <button class="btn btn-primary mt-4 p-1 btn-sm " @click="close(1)"><i class="material-icons ">arrow_back</i></button>
                          <h5 class="card-title text-center tp-serif fs-2 ">{{title}}</h5>
                          <img :src="image" class="mt-2 img-fluid img-details mx-auto d-block mx-5 shadow" alt="...">
                          <p class="card-text text-center"><small class="text-muted">{{date}}</small></p>
                          <p class="card-text text-center  "> <i class="material-icons ">favorite</i>{{likes}}</p>
-                         <p class="card-text text-center">{{description}}</p>
+                         <p class="card-text text-center mb-5">{{description}}</p>
                         
-                         <button class="btn btn-secondary p-1 btn-sm mb-5 " @click="close(1)">Cerrar</button>
                         </div>
                
                     </div>
                 </div>
             </div>
 
-            <p class="card-text text-white border-top text-center fs-2">Noticias similares</p>
+            <p class="card-text mt-5 border-top border-dark text-center fs-2">Noticias similares</p>
             <div class="col-md-4 mb-3">
             <div class="card mb-5 card-margin h-100 " >
             <img class="card-img-top  img-fluid img-fix" :src="image" :alt = "title" >
