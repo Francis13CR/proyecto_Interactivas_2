@@ -3,12 +3,12 @@
 /*font-weights*/
 /*set fonts for sections/titles*/
 .bg-nav {
-  background-color: #6f0e43;
+  background-color: #912F56;
 }
 
 .body {
   font-family: "Heebo", sans-serif;
-  background-color: #fefefe;
+  background-color: #D8DBE2;
 }
 
 .nav-style a {
@@ -76,7 +76,7 @@
 }
 
 .card-img-overlay {
-  background-color: rgba(111, 14, 67, 0.5);
+  background-color: rgba(145, 47, 86, 0.5);
 }
 
 .new-content {
@@ -126,14 +126,14 @@
 }
 
 .bg-login {
-  background-color: #6f0e43;
+  background-color: #912F56;
 }
 
 .card-form {
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: rgba(254, 254, 254, 0.5);
+  background-color: rgba(216, 219, 226, 0.5);
   color: aliceblue;
   transform: translate(-50%, -50%);
   width: 356px;
@@ -219,6 +219,11 @@
     margin-top: 5rem !important;
   }
 }
+.perfil {
+  margin-top: 2rem;
+  color: black;
+}
+
 .form-input {
   width: 25%;
 }
