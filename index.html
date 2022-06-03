@@ -52,10 +52,11 @@
                         </li>
                         
                     </div>
-                    <form class="d-flex mb-1">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-secondary" type="submit">Search</button>
-                      </form>
+                    <div class="d-flex mb-1">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            v-model="search" @keypress="search_notice">
+                        <button class="btn btn-outline-secondary" type="button" @click="search_notice">Search</button>
+                    </div>
 
                 </ul>
                 <!--Boton de menu lateral-->
@@ -82,10 +83,13 @@
                                 <a class="nav-link" href="perfil.html">Perfil</a>
                             </li>
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-secondary" type="submit">Search</button>
-                          </form>
+                        <div class="d-flex">
+                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                 v-model="search" @keypress="search_notice">
+                             <button class="btn btn-outline-secondary" type="button"
+                                 @click="search_notice">Search</button>
+                         </div>
+                          
                     </div>
                 </div>
                 <!--Boton de menu lateral fin-->

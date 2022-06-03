@@ -73,3 +73,7 @@ v1.1.1
    -Se coloca el form de busqueda
    -Se coloca el form para que los usuarios seleccionen las categorias que quieren ver, pero este 
    se encuentra sin funcionamiento
+
+v1.1.2
+    -el buscador ya tiene funcionamiento
+    -arreglos varios

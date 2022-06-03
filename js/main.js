@@ -73,6 +73,7 @@ const app = Vue.createApp({
             selectedItem:0,
             all_news: [],
             recomend_news: [],
+            search: '',
             categories: [
                 {
                     id: 1,
@@ -148,6 +149,7 @@ const app = Vue.createApp({
             }
         },
         showNoticeByCategory(category) {
+            
             if (category == 'all') {
                 this.news = this.all_news;
             } else {
@@ -182,6 +184,33 @@ const app = Vue.createApp({
                    return b.likes - a.likes;
                });
             }
+        },
+        search_notice(){
+            //buscar las noticias que coincidan con la busqueda ya sea por titulo o descripcion
+            var filter = [];
+            for(let i=0;i<this.all_news.length;i++){
+                if(this.all_news[i].title.toLowerCase().indexOf(this.search.toLowerCase())>-1 || this.all_news[i].description.toLowerCase().indexOf(this.search.toLowerCase())>-1){
+                    filter.push(this.all_news[i]);
+                }
+            }
+            if(filter.length>0){
+                this.news = filter;
+            }else{
+                this.news = [
+                    {
+                        id: 999,
+                        title: 'No hay noticias que coincidan con tu busqueda',
+                        subtitle: 'Nuevas noticias estaran disponibles pronto',
+                        description: 'Las noticias que coincidan con tu busqueda estaran disponibles pronto',
+                        image: './imgs/imgspruebas/dino.jpg',
+                        available: true,
+                        date: ' May 5, 2022, 9:05am EDT',
+                        category: '',
+                        likes: 0
+                    }
+                ]
+            }
+            
         }
     },
     mounted() {
