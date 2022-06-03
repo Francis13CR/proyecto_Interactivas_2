@@ -134,7 +134,7 @@
 
 //******************************login*******************************************
 .bg-login {
-    background-color: variables.$bg_color;
+    background-color: #023E73;
 }
 
 .card-form {
@@ -228,16 +228,12 @@
 
 //************************Perfil*************************
 
-.perfil{
-    margin-top: 2rem;
-    color: black;
-}
-.form-input{
-    width: 25%;
+.input-perfil{
+    width: 50%;
 }
 
 @media only screen and (max-width: 768px) {
-.form-input{
+.input-perfil{
     width: 50%;
   
 }
