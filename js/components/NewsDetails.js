@@ -66,7 +66,7 @@ app.component('news-details', {
                             <p class="card-text text-center"><small class="text-muted">{{date}}</small></p>
                             <p class="card-text text-center">
                                 <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(id)">
-                                        <i :id="id" class="fa-regular fa-thumbs-up text-white" aria-hidden="true"></i><span class="text-white">{{likes}}</span>
+                                        <i :id="id" class="fa-regular fa-thumbs-up" aria-hidden="true"></i><span class="">{{likes}}</span>
                                 </button>
                             </p>
                             <p class="card-text text-center mb-5">{{description}}</p>
@@ -76,7 +76,7 @@ app.component('news-details', {
                 </div>
             </div>
 
-            <p class="card-text  border-top text-center fs-2">Noticias similares</p>
+            <p class="card-text  border-dark border-top text-center fs-2">Noticias similares</p>
             <div class="row">
                 <div  v-for="(n,i) in all_news" class="col-md-4">
                     <div class="card mb-5 card-margin h-75">

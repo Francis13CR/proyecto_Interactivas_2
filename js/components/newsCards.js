@@ -46,7 +46,7 @@ app.component('news-cards', {
     /*html*/
     
     `
-    <div class="col-md-4 mb-3"  v-if="index>0">
+    <div class="col-md-4 mb-5"  v-if="index>0">
         <div class="card mb-5 card-margin h-100 " >
         <img class="card-img-top  img-fluid img-fix" :src="image" :alt = "title" >
             <div class=" card-img-overlay  overlay text-white text-center ">

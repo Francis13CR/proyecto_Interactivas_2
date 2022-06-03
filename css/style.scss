@@ -36,6 +36,11 @@
     }
 }
 
+// ********footer**********************//
+.mx{
+    margin-left:50%;
+}
+
 //**********************************************cards**************************//
 .margin-notices {
     margin-top: 0rem!important;
@@ -208,6 +213,10 @@
 }
 
 @media only screen and (max-width: 768px) {
+
+    .bg-nav{
+        height: 10vh;
+    }
     .btn-offcanvas {
         visibility: visible;
     }
@@ -234,6 +243,7 @@
     .margin-notices {
         margin-top: 5rem!important;
     }
+
 }
 
 
