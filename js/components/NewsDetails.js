@@ -59,18 +59,17 @@ app.component('news-details', {
              <div class="mt-5 ">
                   <div class="row g-0">
                         
-                      <div class="justify-content-center">
-                      <button class="btn btn-primary mt-4 p-1 btn-sm " @click="close(1)"><i class="material-icons ">arrow_back</i></button>
-                         <h5 class="card-title text-center tp-serif fs-2 ">{{title}}</h5>
-                         <img :src="image" class="mt-2 img-fluid img-details mx-auto d-block mx-5 shadow" alt="...">
-                         <p class="card-text text-center"><small class="text-muted">{{date}}</small></p>
-                         <p class="card-text text-center">
-                            <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(id)">
-                                    <i :id="id" class="fa-regular fa-thumbs-up text-white" aria-hidden="true"></i><span class="text-white">{{likes}}</span>
-                            </button>
-                         </p>
-                        <p class="card-text text-center mb-5">{{description}}</p>
-                        <button class="btn btn-secondary p-1 btn-sm mb-5 " @click="close(1)">Cerrar</button>
+                        <div class="justify-content-center">
+                            <button class="btn btn-primary mt-4 p-1 btn-sm " @click="close(1)"><i class="material-icons ">arrow_back</i></button>
+                            <h5 class="card-title text-center tp-serif fs-2 ">{{title}}</h5>
+                            <img :src="image" class="mt-2 img-fluid img-details mx-auto d-block mx-5 shadow" alt="...">
+                            <p class="card-text text-center"><small class="text-muted">{{date}}</small></p>
+                            <p class="card-text text-center">
+                                <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(id)">
+                                        <i :id="id" class="fa-regular fa-thumbs-up text-white" aria-hidden="true"></i><span class="text-white">{{likes}}</span>
+                                </button>
+                            </p>
+                            <p class="card-text text-center mb-5">{{description}}</p>
                         </div>
                
                     </div>
