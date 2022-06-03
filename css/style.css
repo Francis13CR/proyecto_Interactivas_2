@@ -3,12 +3,12 @@
 /*font-weights*/
 /*set fonts for sections/titles*/
 .bg-nav {
-  background-color: #2E193F;
+  background-color: #6f0e43;
 }
 
 .body {
   font-family: "Heebo", sans-serif;
-  background-color: #dcdcde;
+  background-color: #fefefe;
 }
 
 .nav-style a {
@@ -76,7 +76,7 @@
 }
 
 .card-img-overlay {
-  background-color: rgba(46, 25, 63, 0.5);
+  background-color: rgba(111, 14, 67, 0.5);
 }
 
 .new-content {
@@ -126,14 +126,14 @@
 }
 
 .bg-login {
-  background-color: #2E193F;
+  background-color: #6f0e43;
 }
 
 .card-form {
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: rgba(220, 220, 222, 0.5);
+  background-color: rgba(254, 254, 254, 0.5);
   color: aliceblue;
   transform: translate(-50%, -50%);
   width: 356px;
