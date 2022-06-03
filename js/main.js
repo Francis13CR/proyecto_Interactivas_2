@@ -45,11 +45,34 @@ const app = Vue.createApp({
                     category: 'Juegos',
                     likes: 60
                 },
+                {
+                    id: 5,
+                    title: 'Moonknight, una pelicula prometedora',
+                    subtitle: 'Hola soy un subtitulo de la noticia',
+                    description: 'La nueva pelicula Moonknight, se estrena el dia 5 de mayo, y se trata de una serie de accion basada en los comics de marvel',
+                    image: './imgs/imgspruebas/moon.jpg',
+                    available: true,
+                    date: 'JUN 06, 2022, 12:55pm EDT',
+                    category: 'Peliculas',
+                    likes: 40
+                },
+                {
+                    id: 6,
+                    title: 'El anime JOJOs Bizarre Adventure se estrena en japón',
+                    subtitle: 'Hola soy un subtitulo de la noticia',
+                    description: 'Hay una nueva serie de anime en japón, el anime JOJOs Bizarre Adventure, se estrena en japón el dia 5 de mayo. Se trata de una serie de accion basada en el legendario manga JOJOs Bizarre Adventure publicado hace 35 años.',
+                    image: './imgs/imgspruebas/jojos.jpg',
+                    available: true,
+                    date: 'JUN 05, 2022, 12:55pm EDT',
+                    category: 'Anime',
+                    likes: 20
+                },
               
             ],
             show_notice_details:false,
             selectedItem:0,
             all_news: [],
+            recomend_news: [],
             categories: [
                 {
                     id: 1,
@@ -71,36 +94,60 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        showIndex(index){
+        showIndex(id){
+            //seleccionar el index del item
+            let index = this.all_news.findIndex(item => item.id == id);
             this.selectedItem=index;
-             
-           this.show_notice_details=true;
+            this.show_notice_details=true;
+            //tomar la cateogria del selectedItem
+            this.news = this.all_news;
+            let category = this.news[this.selectedItem].category;
+            let filterNews = this.news.filter(function (news) {
+                return news.category === category && news.id != id;
+            });
+            this.recomend_news = filterNews;
+            //mover el scroll hacia arriba
+             setTimeout(function () {
+                 window.scrollTo(0, 0);
+             }, 2);
+             document.getElementById('app').scrollIntoView({
+                behavior: 'smooth'
+            });
+            
       
         },
         home(i){
             this.news = this.all_news;
-            if(i==1){
-                this.show_notice_details=false;
+            //obtener el url de donde nos encotramos
+            let url = window.location.href;
+           //si es diferente a index.html
+            if(url.indexOf('index.html')==-1){
+                //redireccionar a index.html
+                window.location.href = 'index.html';
+            }else{
+                if(i==1){
+                    this.show_notice_details=false;
+                }
             }
         },
-        likeCard(index){
-            
+        likeCard(id){
+            //obtener el indice del item seleccionado
+            let index = this.news.findIndex(item => item.id == id);
             //verificar si la noticia ya fue dada like
-            if(document.getElementById(index ).classList.contains('fa')){
+            if(document.getElementById(id).classList.contains('fa')){
                //le quito el like
                 this.news[index].likes--;
-                document.getElementById(index).classList.remove('fa');
-                document.getElementById(index).classList.add('fa-regular');
+                document.getElementById(id).classList.remove('fa');
+                document.getElementById(id).classList.add('fa-regular');
             }else{
                 this.news[index].likes++;
                 //eliminar la clase del boton
-                document.getElementById(index).classList.remove('fa-regular');
+                document.getElementById(id).classList.remove('fa-regular');
                 // agregar la clase del boton
-                document.getElementById(index).classList.add('fa');
+                document.getElementById(id).classList.add('fa');
             }
         },
         showNoticeByCategory(category) {
-            console.log(category);
             if (category == 'all') {
                 this.news = this.all_news;
             } else {
@@ -128,14 +175,20 @@ const app = Vue.createApp({
             }
             this.selectedItem = 0;
         },
+        ordenarNoticias(tipo){
+            //ordenar por likes
+            if(tipo=='likes'){
+               this.news.sort(function (a, b) {
+                   return b.likes - a.likes;
+               });
+            }
+        }
     },
     mounted() {
-        //ordenar por likes
-        this.news.sort(function (a, b) {
-            return b.likes - a.likes;
-        });
+        this.ordenarNoticias('likes');    
         this.all_news = this.news;
     },
     computed: {
+      
     },
 });

@@ -1,28 +1,23 @@
 app.component('news-cards', {
     props:{
         title: {
-            type: String,
-            required: true,
+            type: String
         },
         image: {
-            type: String,
-            required: true,
+            type: String
         },
         available: {
-            type: Boolean,
-            
+            type: Boolean
         },
         date: {
             type: String,
-            required: true,
             default: 'Sin fecha de registro'
         },
         category: {
-            type: String,
+            type: String
         },
         likes: {
             type: Number,
-            required: true,
             default: 0
         },
         id: {
@@ -31,22 +26,20 @@ app.component('news-cards', {
         },
         index: {
             type: Number,
-            required: true,
             default: 0
         },
         subtitle: {
-            type: String,
+            type: String
         }
     },
     methods:{
-        clickNewsDetails(index){
-            this.$emit('clicknewsdetail', index);
+        clickNewsDetails(id){
+            this.$emit('clicknewsdetail', id);
         },
         //boton de likes para cada noticia
-        clickLike(index){
-            
+        clickLike(){
             //aumentar el numero de likes
-            this.$emit('clicklike', this.index);
+            this.$emit('clicklike', this.id);
         }
     },
     template: 
@@ -64,14 +57,14 @@ app.component('news-cards', {
                 <p class="icon_like"><i class="fa-regular fa-thumbs-up " aria-hidden="true"></i>{{likes}}</p>
                 </div>
                 <p class="card-likes">
-                    <button type="button" class="btn btn-outline-info btn-sm " @click="clickNewsDetails(index)">
+                    <button type="button" class="btn btn-outline-info btn-sm " @click="clickNewsDetails(id)">
                     <i class="fa-solid fa-eye text-white" aria-hidden="true"></i><span class="text-white">Detalles</span>
                        
                         </button>
                 </p>
                 <p class="mt-1 card-likes ">
-                    <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(index)">
-                        <i :id="index" class="fa-regular fa-thumbs-up text-white" aria-hidden="true"></i><span class="text-white">{{likes}}</span>
+                    <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(id)">
+                        <i :id="id" class="fa-regular fa-thumbs-up text-white" aria-hidden="true"></i><span class="text-white">{{likes}}</span>
                     </button>
                 </p>  
             </div>
@@ -87,14 +80,14 @@ app.component('news-cards', {
                      </div>
                      <div class="card-img-overlay text-white justify-content-center text-center">
                         <div class="card-body principal-notice">
-                            <div  @click="clickNewsDetails(index)">
+                            <div  @click="clickNewsDetails(id)">
                                 <h5 class="card-title ">{{title}}</h5>
                                 <h6 class="card-subtitle">{{subtitle}}</h6>
                                 <p class="card-text"><small>{{date}}</small></p>
                             </div>
                             <p>
-                              <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(index)">
-                                <i :id="index" class="fa-regular fa-thumbs-up " aria-hidden="true"></i>{{likes}}
+                              <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(id)">
+                                <i :id="id" class="fa-regular fa-thumbs-up " aria-hidden="true"></i>{{likes}}
                               </button>
                             </p>  
                          </div>

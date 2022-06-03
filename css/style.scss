@@ -102,6 +102,21 @@
         font-size: 1rem!important;
     }
 }
+.similar-content {
+    margin-top: .5rem;
+    h5 {
+        @include typography.set-font(variables.$ff-serif, variables.$fw-bold, variables.$fs-sm);
+        font-size: 1rem;
+    }
+    h6 {
+        margin-top: 0rem;
+        font-size: .8rem!important;
+    }
+    p {
+        margin-top: .5rem;
+        font-size: .8rem!important;
+    }
+}
 
 .card:hover {
     //insertar una animacion
@@ -116,9 +131,10 @@
 
 //cuando se ponga el mouse encima,se esconda el overlay y aparezca el boton de likes
 .card:hover .overlay {
-    .new-content {
+    .new-content, .similar-content {
         display: none;
     }
+
     .card-likes {
         display: block;
         position: relative;
@@ -201,12 +217,7 @@
     .card-margin {
         margin-top: 20%;
     }
-    .card-likes {
-        display: block;
-    }
-    .icon_like {
-        display: none;
-    }
+    
     .principal-notice {
         h5 {
             font-size: 1rem!important;

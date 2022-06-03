@@ -82,13 +82,17 @@
         </header>
         <!--noticias normales-->
         <div v-show="!show_notice_details" class="row margin-notices">
-            <news-cards v-for="(n,index) in news" :index="index" :subtitle="n.subtitle" :title="n.title" :image="n.image" :date="n.date" :likes="n.likes" @clicknewsdetail="showIndex" @clicklike="likeCard">
+            <news-cards v-for="(n,index) in news" :index="index" :id="n.id" :subtitle="n.subtitle" :title="n.title" :image="n.image" :date="n.date" :likes="n.likes" @clicknewsdetail="showIndex" @clicklike="likeCard">
             </news-cards>
         </div>
 
         <!-- detalles de noticias-->
         <div v-show="show_notice_details" class="row margin-notices">
-            <news-details :title="news[selectedItem].title" :image="news[selectedItem].image" :likes="news[selectedItem].likes" :date="news[selectedItem].date" :description="news[selectedItem].description" @closnotice="home">
+            <news-details :all_news="recomend_news" :title="news[selectedItem].title"
+                :subtitle="news[selectedItem].subtitle"
+                :id="news[selectedItem].id" :image="news[selectedItem].image" :likes="news[selectedItem].likes"
+                :date="news[selectedItem].date" :description="news[selectedItem].description" @closnotice="home"
+                @clicknewsdetail="showIndex" @clicklike="likeCard">
             </news-details>
         </div>
 

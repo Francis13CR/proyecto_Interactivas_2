@@ -24,14 +24,33 @@ app.component('news-details', {
         description: {
             type: String,
             default: 'lorem ipsum default text '
-
-        }
+        },
+        id: {
+            type: Number,
+            default: 0
+        },
+        subtitle: {
+            type: String,
+            default: 'default text'
+        },
+        all_news: {
+            type: Array
+        },
     },
     methods: {
         close(i) {
             this.$emit('closnotice', i);
-        }
+        },
+        clickLike(id) {
+            //aumentar el numero de likes
+            this.$emit('clicklike', id);
+        },
+        clickNewsDetails(id) {
+            this.$emit('clicknewsdetail', id);
+        },
+           
     },
+    
     template:
     /*html*/
         `
@@ -45,46 +64,46 @@ app.component('news-details', {
                          <h5 class="card-title text-center tp-serif fs-2 ">{{title}}</h5>
                          <img :src="image" class="mt-2 img-fluid img-details mx-auto d-block mx-5 shadow" alt="...">
                          <p class="card-text text-center"><small class="text-muted">{{date}}</small></p>
-                         <p class="card-text text-center  "> <i class="material-icons ">favorite</i>{{likes}}</p>
-                         <p class="card-text text-center mb-5">{{description}}</p>
-                        
+                         <p class="card-text text-center">
+                            <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(id)">
+                                    <i :id="id" class="fa-regular fa-thumbs-up text-white" aria-hidden="true"></i><span class="text-white">{{likes}}</span>
+                            </button>
+                         </p>
+                        <p class="card-text text-center mb-5">{{description}}</p>
+                        <button class="btn btn-secondary p-1 btn-sm mb-5 " @click="close(1)">Cerrar</button>
                         </div>
                
                     </div>
                 </div>
             </div>
 
-            <p class="card-text mt-5 border-top border-dark text-center fs-2">Noticias similares</p>
-            <div class="col-md-4 mb-3">
-            <div class="card mb-5 card-margin h-100 " >
-            <img class="card-img-top  img-fluid img-fix" :src="image" :alt = "title" >
-                <div class=" card-img-overlay  overlay text-white text-center ">
-                    <div class="new-content"  >
-                    <h5 class="card-title pb-4">{{title}}</h5>
-                    <h6 class="card-subtitle mb-2 ">{{subtitle}}</h6>
-                    <p class="card-text"><small >{{date}}</small></p>
-                    <p class="icon_like"><i class="fa-regular fa-thumbs-up " aria-hidden="true"></i>{{likes}}</p>
+            <p class="card-text text-white border-top text-center fs-2">Noticias similares</p>
+            <div class="row">
+                <div  v-for="(n,i) in all_news" class="col-md-4">
+                    <div class="card mb-5 card-margin h-75">
+                        <img class="card-img-top  img-fluid img-fix" :src="n.image" :alt = "n.title" >
+                        <div class=" card-img-overlay  overlay text-white text-center ">
+                            <div class="similar-content "  >
+                                <h5 class="card-title pb-1 ">{{n.title}}</h5>
+                                <h6 class="card-subtitle mb-1 ">{{n.subtitle}}</h6>
+                                <p class="card-text"><small >{{n.date}}</small></p>
+                                <p class="icon_like"><i class="fa-regular fa-thumbs-up " aria-hidden="true"></i>{{n.likes}}</p>
+                            </div>
+                            <p class="card-likes">
+                                <button type="button" class="btn btn-outline-info btn-sm " @click="clickNewsDetails(n.id)">
+                                <i class="fa-solid fa-eye text-white" aria-hidden="true"></i><span class="text-white">Detalles</span>
+                                </button>
+                            </p>
+                            <p class="mt-1 card-likes ">
+                                <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(n.id)">
+                                    <i :id="n.id" class="fa-regular fa-thumbs-up text-white" aria-hidden="true"></i><span class="text-white">{{n.likes}}</span>
+                                </button>
+                            </p>  
+                        </div>
                     </div>
-                    <p class="card-likes">
-                        <button type="button" class="btn btn-outline-info btn-sm " @click="clickNewsDetails(index)">
-                        <i class="fa-solid fa-eye text-white" aria-hidden="true"></i><span class="text-white">Detalles</span>
-                           
-                            </button>
-                    </p>
-                    <p class="mt-1 card-likes ">
-                        <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(index)">
-                            <i :id="index" class="fa-regular fa-thumbs-up text-white" aria-hidden="true"></i><span class="text-white">{{likes}}</span>
-                        </button>
-                    </p>  
                 </div>
-            
             </div>
-        </div>
     
-         </div>
-      
-
-
-         
+        </div>
     `
 });

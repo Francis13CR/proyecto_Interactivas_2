@@ -58,3 +58,11 @@ v1.0.10
     -login y registro terminados
     -se cree la pagina para el administrador
     -perfil esta en un 60% 
+v1.1.0
+    -Se arreglo un fallo con el nav movil al presionar Home
+    -Las noticias relacionadas no funcionaban, era una copia de las noticias normales por lo que se procedio
+    a corregir para que por lo menos mostraran las noticias relacionadas a la categoria.
+    -Debido a lo anterior se tuvo que cambiar el funcionamiento de los likes, en lugar de pasar el index ahora se pasar el 
+    id de cada noticia.
+    -Se puede dar like desde vista noticia.
+    -el scroll sube al abrir una noticia
