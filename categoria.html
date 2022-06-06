@@ -31,23 +31,21 @@
 <body class="body">
     <div class="conteiner-fluid p-5  " id="app">
         <form  action="index.html">
-
-            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
-            <label class="btn btn-secondary" for="option1">Anime</label>
-
-            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-            <label class="btn btn-secondary" for="option2">Juegos</label>
-
-            <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" >
-            <label class="btn btn-secondary" for="option3">Peliculas</label>
-
-            <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
-            <label class="btn btn-secondary" for="option4">Series</label>
-
+            <h1 class="fs-m mb-3">Seleccione las categorias que quiere seguir</h1>
+            <div>
+                 <news-menu-button v-for="(c) in categories" :name="c.name" v-model="showNoticeByCategory"></news-menu-button>
+           
+        </div>
             <input class="btn  mt-5 btn-outline-secondary" type="submit" value="Aceptar">
         </form>
     </div>
 
+    <script src="js/main.js"></script>
+    <script src="js/components/newsCards.js"></script>
+    <script src="js/components/Categoria.js"></script>
+    <script>
+        const mountedApp = app.mount("#app");
+    </script>
 </body>
 
 </html>

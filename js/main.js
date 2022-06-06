@@ -68,6 +68,18 @@ const app = Vue.createApp({
                     likes: 20
                 },
               
+                {
+                    id: 7,
+                    title: 'La temporada 4 de "Stranger Things" rompe varios récords de Netflix',
+                    subtitle: 'Hola soy un subtitulo de la noticia',
+                    description: 'La más reciente temporada de la aclamada serie debutó este fin de semana con cifras récord: es el estreno más visto de un programa en inglés de Netflix.',
+                    image: './imgs/imgspruebas/strangerThings.jpg',
+                    available: true,
+                    date: '17:33 ET(21:33 GMT) 31 mayo, 2022',
+                    category: 'Series',
+                    likes: 50
+                },
+              
             ],
             show_notice_details:false,
             selectedItem:0,
@@ -90,6 +102,10 @@ const app = Vue.createApp({
                 {
                     id: 4,
                     name: 'Series'
+                },
+                {
+                    id: 5,
+                    name: 'Todas'
                 }
             ],
         }
