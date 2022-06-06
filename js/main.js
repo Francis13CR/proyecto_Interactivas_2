@@ -149,7 +149,7 @@ const app = Vue.createApp({
             }
         },
         showNoticeByCategory(category) {
-            
+            this.show_notice_details = false;
             if (category == 'all') {
                 this.news = this.all_news;
             } else {
@@ -194,6 +194,7 @@ const app = Vue.createApp({
                 }
             }
             if(filter.length>0){
+                this.show_notice_details = false;
                 this.news = filter;
             }else{
                 this.news = [
