@@ -76,7 +76,7 @@ app.component('news-details', {
                 </div>
             </div>
 
-            <p class="card-text  border-dark border-top text-center fs-2">Noticias similares</p>
+            <h5 class="card-text  border-dark border-top text-center fs-2">Noticias similares</h5>
             <div class="row">
                 <div  v-for="(n,i) in all_news" class="col-md-4">
                     <div class="card mb-5 card-margin h-75">

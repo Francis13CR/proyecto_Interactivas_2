@@ -166,7 +166,7 @@ const app = Vue.createApp({
         },
         showNoticeByCategory(category) {
             this.show_notice_details = false;
-            if (category == 'all') {
+            if (category == 'Todas') {
                 this.news = this.all_news;
             } else {
                 this.news = this.all_news;

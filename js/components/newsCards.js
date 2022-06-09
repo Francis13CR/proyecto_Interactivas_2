@@ -48,7 +48,7 @@ app.component('news-cards', {
     `
     <div class="col-md-4 mb-5"  v-if="index>0">
         <div class="card mb-5 card-margin h-100 " >
-        <img class="card-img-top  img-fluid img-fix" :src="image" :alt = "title" >
+        <img class="card-img-top  img-fluid img-fix" :src="image" :alt="title" >
             <div class=" card-img-overlay  overlay text-white text-center ">
                 <div class="new-content"  >
                 <h5 class="card-title pb-4">{{title}}</h5>
@@ -83,7 +83,7 @@ app.component('news-cards', {
                             <div  @click="clickNewsDetails(id)">
                                 <h5 class="card-title ">{{title}}</h5>
                                 <h6 class="card-subtitle">{{subtitle}}</h6>
-                                <p class="card-text"><small>{{date}}</small></p>
+                                <h7 class="card-text"><small>{{date}}</small></h7>
                             </div>
                             <p>
                               <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(id)">
