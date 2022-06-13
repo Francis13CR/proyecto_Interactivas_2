@@ -83,7 +83,7 @@ app.component('news-cards', {
                             <div  @click="clickNewsDetails(id)">
                                 <h5 class="card-title ">{{title}}</h5>
                                 <h6 class="card-subtitle">{{subtitle}}</h6>
-                                <h7 class="card-text"><small>{{date}}</small></h7>
+                                <h6 class="card-text"><small>{{date}}</small></h6>
                             </div>
                             <p>
                               <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(id)">

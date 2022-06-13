@@ -233,6 +233,8 @@ const app = Vue.createApp({
     mounted() {
         this.ordenarNoticias('likes');    
         this.all_news = this.news;
+       
+
     },
     computed: {
       
