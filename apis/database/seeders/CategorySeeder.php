@@ -30,8 +30,9 @@ class CategorySeeder extends Seeder
                 "description"=>"Todo lo que necesitas saber sobre el mundo del streaming"
         ]);
         Category::create([
-                "name"=>"peliculas",
+                "name"=>"peliculass",
                 "description"=>"El gran mundo de la pantalla Grande"
         ]);
+       
     }
 }
