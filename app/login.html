@@ -20,12 +20,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
     <title>Geeknews</title>
 </head>
 
 <body class="bg-login">
-    <div class="">
-        <form class="card-form shadow " action="index.html">
+    <div id="app">
+        <form class="card-form shadow " id="form_login">
             <h1 class="text-center fs-1 fw-bold">Iniciar sesión en Geeknews</h1>
             <div class="mb-3">
                 <div class="mb-4">
@@ -40,6 +41,10 @@
             <p class="text-center">¿Aun no eres un Geek? <a href="registro.html" class="text-decoration-none mx-1 text-white fw-bold">Regístrate</a></p>
         </form>
     </div>
+     <script src="js/main.js"></script>
+      <script>
+          const mountedApp = app.mount('#app');
+      </script>
 </body>
 
 </html>

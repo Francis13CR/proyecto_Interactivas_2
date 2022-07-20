@@ -108,6 +108,12 @@ const app = Vue.createApp({
                     name: 'Todas'
                 }
             ],
+            user: {
+                name: '',
+                email: '',
+                password: '',
+                confirm_password: ''
+            }
         }
     },
     methods: {
@@ -228,13 +234,56 @@ const app = Vue.createApp({
                 ]
             }
             
-        }
+        },
+        login(){
+        },
+        register(e){
+            e.preventDefault();
+            if(this.user.password != this.user.confirm_password){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Las contraseñas no coinciden',
+                });
+                return;
+            }
+            //enviar los datos al servidor
+            fetch('http://proyecto_interactivas_2.test/apis/public/api/register', {
+                method: 'POST',
+                name: this.user.name,
+                email: this.user.email,
+                password: this.user.password,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                console.log(data);
+                // if(data.error){
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: 'Oops...',
+                //         text: data.error,
+                //     });
+                // }else{
+                //     Swal.fire({
+                //         icon: 'success',
+                //         title: 'Bienvenido',
+                //         text: 'Te has registrado correctamente',
+                //     });
+                //     this.user = {
+                //         name: '',
+                //         password: '',
+                //         confirm_password: ''
+                //     }
+                // }
+            });	
+        },
     },
     mounted() {
         this.ordenarNoticias('likes');    
         this.all_news = this.news;
-       
-
     },
     computed: {
       
