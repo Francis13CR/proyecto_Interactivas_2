@@ -113,7 +113,14 @@ const app = Vue.createApp({
                 email: '',
                 password: '',
                 confirm_password: ''
-            }
+            },
+            //variable para saber si esta logueado o no
+            isLogged: false,
+            userLogged: {
+                name: '',
+                email: '',
+                id: ''
+            },
         }
     },
     methods: {
@@ -247,43 +254,75 @@ const app = Vue.createApp({
                 });
                 return;
             }
+            let formData = new FormData();  
+            formData.append('name', this.user.name);
+            formData.append('email', this.user.email);
+            formData.append('password', this.user.password);
             //enviar los datos al servidor
-            fetch('http://proyecto_interactivas_2.test/apis/public/api/register', {
-                method: 'POST',
-                name: this.user.name,
-                email: this.user.email,
-                password: this.user.password,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+            fetch('http://apis.test/api/register', {
+                method: 'post',
+                body: formData
             }).then(response => {
                 return response.json();
             }).then(data => {
-                console.log(data);
-                // if(data.error){
-                //     Swal.fire({
-                //         icon: 'error',
-                //         title: 'Oops...',
-                //         text: data.error,
-                //     });
-                // }else{
-                //     Swal.fire({
-                //         icon: 'success',
-                //         title: 'Bienvenido',
-                //         text: 'Te has registrado correctamente',
-                //     });
-                //     this.user = {
-                //         name: '',
-                //         password: '',
-                //         confirm_password: ''
-                //     }
-                // }
+                if(data.status == "error"){
+                    for (const key in data.errors) {
+                        for (const error of data.errors[key]) {
+                        
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: error,
+                            });
+                        }
+                    }
+                    
+                }else if(data.status == "success"){
+                    this.isLogged = true;
+                    var name_user = data.data.name;
+                    var email_user = data.data.email;
+                    var id = data.data.id;
+                    localStorage.setItem('isLogged', true);
+                    localStorage.setItem('name', name_user);
+                    localStorage.setItem('email', email_user);
+                    localStorage.setItem('id', id);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Bienvenido',
+                        text: 'Te has registrado correctamente',
+                        timer: 4000,
+                        timerProgressBar: true,
+                       didOpen: () => {
+                           Swal.showLoading()
+                            
+                       },
+                    }).then(() => {
+                        window.location.href = 'index.html';
+
+
+                    });
+                    this.user = {
+                        name: '',
+                        password: '',
+                        confirm_password: ''
+                    }
+                }
             });	
         },
     },
     mounted() {
         this.ordenarNoticias('likes');    
         this.all_news = this.news;
+        //consultar almacenamiento local para ver si el usuario esta logueado
+        if(localStorage.getItem('isLogged')=='true'){
+            this.isLogged = true;
+            this.userLogged = {
+                name: localStorage.getItem('name'),
+                email: localStorage.getItem('email'),
+                id: localStorage.getItem('id')
+            }
+        }
+
     },
     computed: {
       
