@@ -390,6 +390,16 @@ const app = Vue.createApp({
             this.isLogged = false;
         }
 
+
+        fetch('http://127.0.0.1:8000/api/users')   
+        .then(response => response.json())
+        .then(data=>{
+            console.log(data);
+           /* this.users=data;*/
+        }
+
+        )
+
     },
     computed: {
       
