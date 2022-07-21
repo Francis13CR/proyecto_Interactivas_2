@@ -3,7 +3,7 @@ const app = Vue.createApp({
         return {
             news: [],
             show_notice_details:false,
-            selected_news:[],
+            selected_news:[{id:'',title:'',subtitle:'',description:'',img:''}],
             all_news: [],
             recomend_news: [],
             search: '',
@@ -11,20 +11,7 @@ const app = Vue.createApp({
                 {id:1, name:'all', style:'btn-primary'}
             ],
         }
-    }, mounted:function(){
-        fetch('http://proyecto_interactivas_2.test/apis/public/api/categories')
-        .then(response => response.json())
-     .then(data=>{
-         console.log(data);
-         this.categories=data;
-     });
-        fetch('http://proyecto_interactivas_2.test/apis/public/api/news')
-        .then(response => response.json())
-     .then(data=>{
-        console.log(data);
-        this.news=data;
-     });
-        
+    
         
     },
     methods: {
@@ -158,7 +145,7 @@ const app = Vue.createApp({
         }
     },
     mounted() {
-        this.ordenarNoticias('likes');    
+         
         this.all_news = this.news;
 
         // se llama la api de categorias y se carga en el array de categorias
