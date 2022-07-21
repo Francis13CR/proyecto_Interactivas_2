@@ -233,7 +233,16 @@ const app = Vue.createApp({
     mounted() {
         this.ordenarNoticias('likes');    
         this.all_news = this.news;
-       
+
+
+        fetch('http://127.0.0.1:8000/api/users')   
+        .then(response => response.json())
+        .then(data=>{
+            console.log(data);
+           /* this.users=data;*/
+        }
+
+        )
 
     },
     computed: {
