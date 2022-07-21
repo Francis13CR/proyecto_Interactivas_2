@@ -21,19 +21,21 @@
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
+     <!-- sweetalert2-->
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Geeknews</title>
 </head>
 
 <body class="bg-login">
     <div id="app">
-        <form class="card-form shadow " id="form_login">
+        <form class="card-form shadow " id="form_login" @submit="login" method="post">
             <h1 class="text-center fs-1 fw-bold">Iniciar sesión en Geeknews</h1>
             <div class="mb-3">
                 <div class="mb-4">
-                    <input class="form-input form-control" type="text" name="" id="" required placeholder="Usuario o Correo Electronico">
+                    <input class="form-input form-control" type="email" name="email" id="email_login" required placeholder="Correo Electronico">
                 </div>
                 <div class="mb-4">
-                    <input class="form-input form-control" type="password" name="" required id="" placeholder="Contraseña">
+                    <input class="form-input form-control" type="password" name="password" required id="password_login" placeholder="Contraseña">
                 </div>
                 <input type="submit" class="form-btn btn mx-auto" value="login" >
             </div>

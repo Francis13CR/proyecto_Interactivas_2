@@ -60,7 +60,10 @@ class AuthController extends Controller
         
         if(!Auth::attempt($request->only('email', 'password')))
         {
-            return response()->json(['message' => 'Unauthorized'], 401);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Credenciales incorrectas o no han sido registradas'],
+                401);
         }
 
         $user = User::where('email', $request['email'])->firstOrFail();
@@ -68,7 +71,8 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            'message' => 'Hi '.$user->name,
+            'status' => 'success',	
+            'message' => 'Bievenido(a) '.$user->name,
             'accessToken' => $token,
             'token_type' => 'Bearer',
             'user' => $user
@@ -78,7 +82,9 @@ class AuthController extends Controller
         auth()->user()->tokens->each(function($token, $key){
             $token->delete();
         });
-        return response()->json(['message' => 'Logged out successfully']);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Sesión cerrada']);
     }
 
     /**

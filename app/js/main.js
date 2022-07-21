@@ -242,7 +242,47 @@ const app = Vue.createApp({
             }
             
         },
-        login(){
+        login(e){
+            e.preventDefault();
+            let formData = new FormData();
+            formData.append('email', document.getElementById('email_login').value);
+            formData.append('password', document.getElementById('password_login').value);
+            fetch('http://apis.test/api/login', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status == 'error'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: data.message,
+                    })
+                }
+                if(data.status == 'success'){
+                    var name_user = data.user.name;
+                    var email_user = data.user.email;
+                    var id = data.user.id;
+                    //ingresarlo a ala base de datos local
+                     localStorage.setItem('isLogged', true);
+                     localStorage.setItem('name', name_user);
+                     localStorage.setItem('email', email_user);
+                     localStorage.setItem('id', id);;
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Inicio de sesion exitoso',
+                        text: data.message,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        },
+                    }).then(() => {
+                            window.location.href = 'index.html';
+                    });
+                }
+            })
         },
         register(e){
             e.preventDefault();
@@ -268,7 +308,6 @@ const app = Vue.createApp({
                 if(data.status == "error"){
                     for (const key in data.errors) {
                         for (const error of data.errors[key]) {
-                        
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...',
@@ -276,7 +315,6 @@ const app = Vue.createApp({
                             });
                         }
                     }
-                    
                 }else if(data.status == "success"){
                     this.isLogged = true;
                     var name_user = data.data.name;
@@ -290,16 +328,13 @@ const app = Vue.createApp({
                         icon: 'success',
                         title: 'Bienvenido',
                         text: 'Te has registrado correctamente',
-                        timer: 4000,
+                        timer: 3000,
                         timerProgressBar: true,
                        didOpen: () => {
                            Swal.showLoading()
-                            
-                       },
+                        },
                     }).then(() => {
                         window.location.href = 'index.html';
-
-
                     });
                     this.user = {
                         name: '',
@@ -309,6 +344,36 @@ const app = Vue.createApp({
                 }
             });	
         },
+        logout(){
+            Swal.fire({
+                icon: 'warning',
+                title: '¿Estas seguro?',
+                text: 'Estas a punto de cerrar tu sesion',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, cerrar sesion'
+            }).then((result) => {
+                if (result) {
+                    localStorage.setItem('isLogged', false);
+                    localStorage.removeItem('name');
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('id');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sesion cerrada',
+                        text: 'Hasta pronto',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        }
+                    }).then(() => {
+                        window.location.href = 'index.html';
+                    });
+                }
+            })
+        }
     },
     mounted() {
         this.ordenarNoticias('likes');    
@@ -321,6 +386,8 @@ const app = Vue.createApp({
                 email: localStorage.getItem('email'),
                 id: localStorage.getItem('id')
             }
+        }else{
+            this.isLogged = false;
         }
 
     },
