@@ -20,10 +20,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+
+      <!-- sweetalert2-->
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
-     <!-- sweetalert2-->
-     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+   
     <title>Geeknews</title>
 </head>
 
@@ -112,7 +115,6 @@
         </div>
 
         <!-- detalles de noticias-->
-        <div class="row">
            
        <div class="col-12">
         <div v-show="show_notice_details" class="  margin-notices">
@@ -124,10 +126,8 @@
             </news-details>
         </div>
 
-        <div >
-            <p>Noticias relacionadas</p>
-            <related></related>
-        </div>
+      
+       </div>
        </div>
        
        
@@ -144,11 +144,11 @@
 
     </div>
 
-
     <script src="js/main.js"></script>
     <script src="js/components/newsCards.js"></script>
     <script src="js/components/NewsDetails.js"></script>
     <script src="js/components/RelatedNews.js"></script>
+ 
     <script>
         const mountedApp = app.mount('#app');
     </script>
