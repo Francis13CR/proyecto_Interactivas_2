@@ -87,6 +87,10 @@ class AuthController extends Controller
             'message' => 'Sesión cerrada']);
     }
 
+    public function chngpassword(Request $request){
+
+        
+    }
     /**
      * Show the form for creating a new resource.
      *
