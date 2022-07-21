@@ -21,9 +21,11 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        //creamos una nueva noticia
+        return $request->all();
+
     }
 
     /**

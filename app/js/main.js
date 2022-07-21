@@ -373,7 +373,42 @@ const app = Vue.createApp({
                     });
                 }
             })
+        },
+        sendNotice(e){
+            e.preventDefault();
+            // if(this.notice.title == '' || this.notice.description == '' || this.notice.category == ''){
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'Oops...',
+            //         text: 'Todos los campos son obligatorios',
+            //     });
+            //     return;
+            // }
+            let formData = new FormData();
+            formData.append('title', document.getElementById('title_notice').value);
+            formData.append('description', document.getElementById('description_notice').value);
+            formData.append('category', document.getElementById('news_category').value);
+            formData.append('image', document.getElementById('image_notice').files[0]);
+            formData.append('subtitle', document.getElementById('subtitle_notice').value);
+            //enviar los datos a la api
+            fetch('http://apis.test/api/saveNews', {
+                method: 'post',
+                body: formData
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                console.log(data);
+            });
+        },
+        imgNotice(e){
+            //hacer una vista previa de la imagen
+            let reader = new FileReader();
+            reader.onload = (e) => {
+               document.getElementById('img_notice').src = e.target.result;
+            }
+            reader.readAsDataURL(e.target.files[0]);
         }
+
     },
     mounted() {
         this.ordenarNoticias('likes');    
