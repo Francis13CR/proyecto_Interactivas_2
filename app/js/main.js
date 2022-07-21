@@ -108,6 +108,19 @@ const app = Vue.createApp({
                     name: 'Todas'
                 }
             ],
+            user: {
+                name: '',
+                email: '',
+                password: '',
+                confirm_password: ''
+            },
+            //variable para saber si esta logueado o no
+            isLogged: false,
+            userLogged: {
+                name: '',
+                email: '',
+                id: ''
+            },
         }
     },
     methods: {
@@ -228,12 +241,154 @@ const app = Vue.createApp({
                 ]
             }
             
+        },
+        login(e){
+            e.preventDefault();
+            let formData = new FormData();
+            formData.append('email', document.getElementById('email_login').value);
+            formData.append('password', document.getElementById('password_login').value);
+            fetch('http://apis.test/api/login', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status == 'error'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: data.message,
+                    })
+                }
+                if(data.status == 'success'){
+                    var name_user = data.user.name;
+                    var email_user = data.user.email;
+                    var id = data.user.id;
+                    //ingresarlo a ala base de datos local
+                     localStorage.setItem('isLogged', true);
+                     localStorage.setItem('name', name_user);
+                     localStorage.setItem('email', email_user);
+                     localStorage.setItem('id', id);;
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Inicio de sesion exitoso',
+                        text: data.message,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        },
+                    }).then(() => {
+                            window.location.href = 'index.html';
+                    });
+                }
+            })
+        },
+        register(e){
+            e.preventDefault();
+            if(this.user.password != this.user.confirm_password){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Las contraseñas no coinciden',
+                });
+                return;
+            }
+            let formData = new FormData();  
+            formData.append('name', this.user.name);
+            formData.append('email', this.user.email);
+            formData.append('password', this.user.password);
+            //enviar los datos al servidor
+            fetch('http://apis.test/api/register', {
+                method: 'post',
+                body: formData
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                if(data.status == "error"){
+                    for (const key in data.errors) {
+                        for (const error of data.errors[key]) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: error,
+                            });
+                        }
+                    }
+                }else if(data.status == "success"){
+                    this.isLogged = true;
+                    var name_user = data.data.name;
+                    var email_user = data.data.email;
+                    var id = data.data.id;
+                    localStorage.setItem('isLogged', true);
+                    localStorage.setItem('name', name_user);
+                    localStorage.setItem('email', email_user);
+                    localStorage.setItem('id', id);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Bienvenido',
+                        text: 'Te has registrado correctamente',
+                        timer: 3000,
+                        timerProgressBar: true,
+                       didOpen: () => {
+                           Swal.showLoading()
+                        },
+                    }).then(() => {
+                        window.location.href = 'index.html';
+                    });
+                    this.user = {
+                        name: '',
+                        password: '',
+                        confirm_password: ''
+                    }
+                }
+            });	
+        },
+        logout(){
+            Swal.fire({
+                icon: 'warning',
+                title: '¿Estas seguro?',
+                text: 'Estas a punto de cerrar tu sesion',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, cerrar sesion'
+            }).then((result) => {
+                if (result) {
+                    localStorage.setItem('isLogged', false);
+                    localStorage.removeItem('name');
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('id');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sesion cerrada',
+                        text: 'Hasta pronto',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                        }
+                    }).then(() => {
+                        window.location.href = 'index.html';
+                    });
+                }
+            })
         }
     },
     mounted() {
         this.ordenarNoticias('likes');    
         this.all_news = this.news;
-       
+        //consultar almacenamiento local para ver si el usuario esta logueado
+        if(localStorage.getItem('isLogged')=='true'){
+            this.isLogged = true;
+            this.userLogged = {
+                name: localStorage.getItem('name'),
+                email: localStorage.getItem('email'),
+                id: localStorage.getItem('id')
+            }
+        }else{
+            this.isLogged = false;
+        }
 
     },
     computed: {
