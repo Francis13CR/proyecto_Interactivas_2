@@ -8,7 +8,7 @@ app.component('news-details', {
             type: String,
             default: 'default text'
         },
-        image: {
+        img: {
             type: String,
             default: '../imgs/imgspruebas/default-image.webp'
         },
@@ -57,7 +57,7 @@ app.component('news-details', {
                         <div class="justify-content-center">
                             <button class="btn btn-primary mt-5 p-1 btn-sm " @click="close(1)"><i class="material-icons ">arrow_back</i></button>
                             <h5 class="card-title mx-5 tp-serif fs-2 ">{{title}}</h5>
-                            <img :src="image" class="mt-2 img-fluid  img-details  d-block mx-5 shadow" alt="...">
+                           
                             <p class="card-text  mx-5"><small class="text-muted">{{created_at}}</small></p>
                             <p class="card-text  mx-5 mb-5">{{description}}</p>
                         </div>
