@@ -35,7 +35,7 @@ class NewsController extends Controller
     ["id","<>",$id]])->get();
 
     return $related_news;
-    //El count ayuda a preguntarle al array si tiene o no valores
+    
     
    
 }
