@@ -46,6 +46,21 @@ class NewsController extends Controller
         "categories.name", "categories.name as category")->where("categories.name","=",$category)->get();
         return $item;
     }
+
+    public function search($keyboard){
+        $results=DB::table("news")->join("categories", "news.categories_id","=","categories.id")
+        ->select("news.id", "news.title", "news.img", "news.description", "news.created_at",
+        "categories.name")
+        ->where("news.title", "like", "%{$keyboard}%")
+        ->orWhere("news.description", "like", "%{$keyboard}%")
+        ->get();
+    
+        if(count($results) > 0){
+            return $results;
+            }else{
+                return response()->json(["message"=> "No found: ".$keyboard]);
+            } 
+        }
     /**
      * Show the form for creating a new resource.
      *
