@@ -54,7 +54,32 @@ class NewsController extends Controller
     public function create(Request $request)
     {
         //creamos una nueva noticia
-        return $request->all();
+        $news = new News();
+        $news->title = $request->title;
+        $news->subtitle = $request->subtitle;
+        $img = $request->img;
+        //sacamos la imagen de la peticion
+        $image = $request->file('image');
+        //guardamos la imagen en la carpeta public/images
+        $image_name = time().$image->getClientOriginalName();
+        $image->move('storage/imgs',$image_name);
+        $news->img = $image_name;
+
+        $news->description = $request->description;
+        $news->categories_id = $request->category;
+        //obteneos fecha y hora actuales GMT-6
+        $news->created_at = date('Y-m-d H:i:s', time() - (6 * 60 * 60));
+        $news->updated_at = date('Y-m-d H:i:s', time() - (6 * 60 * 60));
+
+
+        $news->save();
+        return response()->json(
+            [
+                'status' => 'success',
+                'message' => 'News created successfully'
+            ]
+        );
+
 
     }
 
@@ -68,6 +93,7 @@ class NewsController extends Controller
     {
         //
     }
+
 
     /**
      * Display the specified resource.

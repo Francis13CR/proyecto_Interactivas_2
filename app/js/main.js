@@ -41,20 +41,27 @@ const app = Vue.createApp({
   methods: {
     sendNotice(e) {
       e.preventDefault();
-      // if(this.notice.title == '' || this.notice.description == '' || this.notice.category == ''){
-      //     Swal.fire({
-      //         icon: 'error',
-      //         title: 'Oops...',
-      //         text: 'Todos los campos son obligatorios',
-      //     });
-      //     return;
-      // }
+      var title, subtitle, description, categories_id;
+      title = document.getElementById("title_notice").value;
+      subtitle = document.getElementById("subtitle_notice").value;
+      description = document.getElementById("description_notice").value;
+      categories_id = document.getElementById("news_category").value;
+      img = document.getElementById("image_notice").files[0];
+      console.log(title, subtitle, description, categories_id, img);
+      if (title == "" || subtitle == "" || description == "" || img == undefined || categories_id == "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Todos los campos son obligatorios',
+        });
+        return;
+      }
       let formData = new FormData();
-      formData.append('title', document.getElementById('title_notice').value);
-      formData.append('description', document.getElementById('description_notice').value);
-      formData.append('category', document.getElementById('news_category').value);
+      formData.append('title', title);
+      formData.append('description', description);
+      formData.append('category', categories_id);
       formData.append('image', document.getElementById('image_notice').files[0]);
-      formData.append('subtitle', document.getElementById('subtitle_notice').value);
+      formData.append('subtitle', subtitle);
       //enviar los datos a la api
       fetch('http://apis.test/api/saveNews', {
         method: 'post',
@@ -62,7 +69,27 @@ const app = Vue.createApp({
       }).then(response => {
         return response.json();
       }).then(data => {
-        console.log(data);
+        if (data.status == "success") {
+          Swal.fire({
+            icon: 'success',
+            title: '¡Felicidades!',
+            text: 'Se ha guardado correctamente',
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+            },
+          }).then(() => {
+            window.location.href = "listanoticias.html";
+          });
+
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Algo salió mal',
+          });
+        }
       });
     },
     imgNotice(e) {

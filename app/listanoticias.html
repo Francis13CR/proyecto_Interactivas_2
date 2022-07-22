@@ -41,24 +41,41 @@
             <!-- formulario de noticia -->
 
             <div v-show="!show_notice_details" class="row margin-notices">
-                <news-cards v-for="(n,index) in news" :index="index" :subtitle="n.subtitle" :title="n.title"
-                    :image="n.image" :date="n.date" :likes="n.likes" @clicknewsdetail="showIndex" @clicklike="likeCard">
+                <news-cards v-for="(n,index) in news" :index="index" :category="n.category"
+                    :categories_id="n.categories_id" :id="n.id" :title="n.title" :subtitle="n.subtitle" :img="n.img"
+                    :created_at="n.created_at" @clicknewsdetail="showIndex">
                 </news-cards>
             </div>
+            <div class="row">
 
-       
+                <div class="col-12">
+                    <div v-show="show_notice_details" class="  margin-notices">
+                        <news-details :title="selected_news[0].title" :subtitle="selected_news[0].subtitle"
+                            :img="selected_news[0].img" :category="selected_news[0].category"
+                            :created_at="selected_news[0].created_at" :description="selected_news[0].description"
+                            @closnotice="home">
+                        </news-details>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+
             <footer class="mt-5 row">
                 <nav class="mb-1 bg-nav nav-style justify-content-center text-white">
-                          <p class="fs-s text-center">
-                            Copyright © 2022 <strong>Geeknews</strong> .Todos los derechos reservados.
-                          </p>
+                    <p class="fs-s text-center">
+                        Copyright © 2022 <strong>Geeknews</strong> .Todos los derechos reservados.
+                    </p>
                 </nav>
             </footer>
-          
+
         </div>
 
         <script src="js/main.js"></script>
         <script src="js/components/newsCards.js"></script>
+        <script src="js/components/newsDetails.js"></script>
+        
         <script>
             const mountedApp = app.mount('#app');
         </script>
