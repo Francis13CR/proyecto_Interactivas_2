@@ -46,7 +46,7 @@
                         </li>
                         <li v-for="(c, index) in categories" class="nav-item">
                             <button class="btn text-white btn-nav"
-                                @click="showNoticeByCategory(c.name)">{{c.name}}</button>
+                                @click="showNoticeByCategory(c.id)">{{c.name}}</button>
                         </li>
                         <div class="d-flex mx-5 justify-content-end ">
                             <li v-show="!isLogged" class="nav-item login justify-content-end ">

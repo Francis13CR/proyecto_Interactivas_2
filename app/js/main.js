@@ -179,26 +179,32 @@ const app = Vue.createApp({
         this.news = this.all_news;
       } else {
         this.news = this.all_news;
-        let filterNews = this.news.filter(function (news) {
-          return news.category === category;
+        console.log(category);
+        // let filterNews = this.news.filter(function (news) {
+  
+        //   return news.categories_id === category;
+        // });
+        fetch("http://apis.test/api/news/category/" + category)
+        .then((response) => response.json())
+        .then((data) => {
+          this.news = data;
+          if (this.news.length == 0) {
+
+            this.news = [{
+              id: 999,
+              title: "No hay noticias para esta categoria",
+              subtitle: "Nuevas noticias estaran disponibles pronto",
+              description: "Las noticias de esta categoria estaran disponibles pronto",
+              image: "./imgs/imgspruebas/dino.jpg",
+              available: true,
+              date: " May 5, 2022, 9:05am EDT",
+              category: "",
+              likes: 0,
+            }, ];
+          }
+          
         });
-        if (filterNews.length > 0) {
-          this.news = filterNews;
-        } else {
-          this.news = [{
-            id: 999,
-            title: "No hay noticias para esta categoria",
-            subtitle: "Nuevas noticias estaran disponibles pronto",
-            description: "Las noticias de esta categoria estaran disponibles pronto",
-            image: "./imgs/imgspruebas/dino.jpg",
-            available: true,
-            date: " May 5, 2022, 9:05am EDT",
-            category: "",
-            likes: 0,
-          }, ];
-        }
       }
-      this.selectedItem = 0;
     },
     ordenarNoticias(tipo) {
       //ordenar por likes
