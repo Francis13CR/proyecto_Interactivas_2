@@ -178,12 +178,8 @@ const app = Vue.createApp({
       if (category == "Todas") {
         this.news = this.all_news;
       } else {
-        this.news = this.all_news;
-        console.log(category);
-        // let filterNews = this.news.filter(function (news) {
-  
-        //   return news.categories_id === category;
-        // });
+        this.news =[];
+        this.recomend_news =[];
         fetch("http://apis.test/api/news/category/" + category)
         .then((response) => response.json())
         .then((data) => {
@@ -191,16 +187,21 @@ const app = Vue.createApp({
           if (this.news.length == 0) {
 
             this.news = [{
-              id: 999,
-              title: "No hay noticias para esta categoria",
-              subtitle: "Nuevas noticias estaran disponibles pronto",
-              description: "Las noticias de esta categoria estaran disponibles pronto",
-              image: "./imgs/imgspruebas/dino.jpg",
-              available: true,
-              date: " May 5, 2022, 9:05am EDT",
-              category: "",
-              likes: 0,
+              available: false,
+              categories_id: 1,
+              created_at: "2022-07-22 05:58:45",
+              id: 3,
+              img: "http://apis.test/storage/imgs/prueba.jpg",
+              index: 0,
+              subtitle: "No hay noticias para esta categoria",
+              title: "Disponible pronto" ,
             }, ];
+          }else{
+            //recorrer las noticias para agregar la imagen
+            for (let i = 0; i < this.news.length; i++) {
+          
+              this.news[i].img = "http://apis.test/storage/imgs/" + this.news[i].img;
+            }
           }
           
         });
@@ -234,15 +235,14 @@ const app = Vue.createApp({
         this.news = filter;
       } else {
         this.news = [{
-          id: 999,
-          title: "No hay noticias que coincidan con tu busqueda",
-          subtitle: "Nuevas noticias estaran disponibles pronto",
-          description: "Las noticias que coincidan con tu busqueda estaran disponibles pronto",
-          image: "./imgs/imgspruebas/dino.jpg",
-          available: true,
-          date: " May 5, 2022, 9:05am EDT",
-          category: "",
-          likes: 0,
+          available: false,
+          categories_id: 1,
+          created_at: "2022-07-22 05:58:45",
+          id: 3,
+          img: "http://apis.test/storage/imgs/prueba.jpg",
+          index: 0,
+          subtitle: "No hay noticias para esta busqueda",
+          title: "Disponible pronto",
         }, ];
       }
     },
@@ -396,6 +396,9 @@ const app = Vue.createApp({
       .then((response) => response.json())
       .then((data) => {
         this.news = data;
+        for (let i = 0; i < this.news.length; i++) {
+          this.news[i].img = "http://apis.test/storage/imgs/" + this.news[i].img;
+        }
         this.all_news = this.news;
       });
 

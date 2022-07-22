@@ -45,6 +45,7 @@ app.component('related', {
     },
     mounted() {
         this.picture="http://apis.test/storage/imgs/"+this.img;
+        
      
     },
     template: 
@@ -61,7 +62,7 @@ app.component('related', {
                 <h5 class="card-title pb-4">{{title}}</h5>
                 <h6 class="card-subtitle mb-2 ">{{subtitle}}</h6>
                 <p class="card-text"><small >{{created_at}}</small></p>
-                <p class="icon_like"><i class="fa-regular fa-thumbs-up " aria-hidden="true"></i>{{}}</p>
+               
                 </div>
                 <p class="card-likes">
                     <button type="button" class="btn btn-outline-info btn-sm " @click="clickNewsDetails(id,categories_id)">
@@ -69,11 +70,7 @@ app.component('related', {
                        
                         </button>
                 </p>
-                <p class="mt-1 card-likes ">
-                    <button type="button" class="btn btn-outline-primary btn-sm" @click="clickLike(id)">
-                        <i :id="id" class="fa-regular fa-thumbs-up text-white" aria-hidden="true"></i><span class="text-white">{{}}</span>
-                    </button>
-                </p>  
+                 
             </div>
         
         </div>
