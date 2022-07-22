@@ -30,6 +30,7 @@ const app = Vue.createApp({
           subtitle: "",
           description: "",
           img: "",
+          categories_id: 0
         },
       ],
       recomend_news:[],
@@ -56,27 +57,33 @@ const app = Vue.createApp({
         email: "",
         id: "",
       },
+      show_details: false,
     };
   },
  
   methods: {
     showIndex(id) {
-      
-      console.log("category "+ categories_id);
       fetch("http://apis.test/api/news/detail/" + id)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           this.selected_news = data;
+          this.selected_news[0].img = "http://apis.test/storage/imgs/" + this.selected_news[0].img;
           this.show_notice_details=true;
-        });
 
-        fetch("http://apis.test/api/news/related/" + id +"/"+categories_id)
+        });
+        //obtener el categories_id de la noticia
+        for (let i = 0; i < this.news.length; i++) {
+          if (this.news[i].id == id) {
+            this.selected_news[0].categories_id = this.news[i].categories_id;
+            
+          }
+        }
+      fetch("http://apis.test/api/news/related/"+id+"/"+this.selected_news[0].categories_id)
         .then((response) => response.json())
         .then((data) => {
           this.recomend_news=data;
-          console.log( this.recomend_news);
         });
+        this.show_details = true;
       //seleccionar el index del item
       // let index = this.all_news.findIndex(item => item.id == id);
       // this.selectedItem=index;
@@ -107,7 +114,6 @@ const app = Vue.createApp({
       } else {
         if (i == 1) {
           this.show_notice_details = false;
-          console.log(this.news);
         }
       }
     },
@@ -340,28 +346,19 @@ const app = Vue.createApp({
     },
   },
   mounted() {
-    
-    // fetch("http://apis.test/api/categories",{
-    //     method: "GET",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //         "Accept": "application/json",
-    //     },
-    // })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         // this.categories = data.data;
-    //     }
-    // );
-    
-    
-
-    // fetch("http://apis.test/api/news")
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     // this.news = JSON.parse(JSON.stringify(data));
-    //   });
     this.all_news = this.news;
+    fetch("http://apis.test/api/categories")
+        .then((response) => response.json())
+        .then((data) => {
+             this.categories = data;
+        }
+    );
+    fetch("http://apis.test/api/news")
+      .then((response) => response.json())
+      .then((data) => {
+       this.news = data;
+      });
+
     // se llama la api de categorias y se carga en el array de categorias
   
     //consultar almacenamiento local para ver si el usuario esta logueado

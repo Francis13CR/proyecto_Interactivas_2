@@ -41,7 +41,6 @@ app.component("news-cards", {
   },
   mounted() {
     this.picture = "http://apis.test/storage/imgs/" + this.img;
-    console.log(this.picture);
   },
   template:
     /*html*/

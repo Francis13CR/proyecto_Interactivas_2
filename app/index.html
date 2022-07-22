@@ -79,7 +79,7 @@
                         aria-labely="offcanvasRightLabel">
                         <div class="offcanvas-header">
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
+                                aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body bg-nav">
                             <ul class="list-unstyled">
@@ -114,55 +114,57 @@
             </div>
         </header>
         <!--noticias normales-->
-       <!--noticias normales-->
-       <div v-show="!show_notice_details" class="row margin-notices">
-        <news-cards v-for="(n,index) in news" :index="index" :category="n.category" :categories_id="n.categories_id" :id="n.id" :title="n.title"  
-            :subtitle="n.subtitle" :img="n.img" :created_at="n.created_at"  @clicknewsdetail="showIndex">
-        </news-cards>
+        <!--noticias normales-->
+        <div v-show="!show_notice_details" class="row margin-notices">
+            <news-cards v-for="(n,index) in news" :index="index" :category="n.category" :categories_id="n.categories_id"
+                :id="n.id" :title="n.title" :subtitle="n.subtitle" :img="n.img" :created_at="n.created_at"
+                @clicknewsdetail="showIndex">
+            </news-cards>
+        </div>
+
+        <!-- detalles de noticias-->
+        <div class="row">
+
+            <div  class="col-12">
+                <div v-show="show_notice_details" class="  margin-notices">
+                    <news-details :title="selected_news[0].title" :subtitle="selected_news[0].subtitle"
+                        :img="selected_news[0].img" :category="selected_news[0].category"
+                        :created_at="selected_news[0].created_at" :description="selected_news[0].description"
+                        @closnotice="home">
+                    </news-details>
+                </div>
+
+                <div class="row  margin-notices">
+
+                    <related v-for="(n,index) in recomend_news" :index="index" :category="n.category"
+                        :categories_id="n.categories_id" :id="n.id" :title="n.title" :subtitle="n.subtitle" :img="n.img"
+                        :created_at="n.created_at" @clicknewsdetail="showIndex"></related>
+                </div>
+            </div>
+
+
+        </div>
+
+        <footer class="mt-5 row">
+            <nav class="mt-3 bg-nav nav-style justify-content-center text-white">
+                <a class="text-center mx text-decoration-none fs-s " href="geeknews@gmail.com"> Contactenos</a>
+                <p class="fs-s text-center text-white">
+                    ©Geeknews
+                </p>
+            </nav>
+        </footer>
+
     </div>
-    
-    <!-- detalles de noticias-->
-    <div class="row">
-       
-   <div class="col-12">
-    <div v-show="show_notice_details" class="  margin-notices">
-        <news-details  :title="selected_news[0].title"
-        :subtitle="selected_news[0].subtitle"
-         :img="selected_news[0].img" :category="selected_news[0].category" 
-        :created_at="selected_news[0].created_at" :description="selected_news[0].description" @closnotice="home">
-    </news-details>
-    </div>
-
-    <div class="row  margin-notices" >
-        
-        <related v-for="(n,index) in recomend_news" :index="index" :category="n.category" :categories_id="n.categories_id" :id="n.id" :title="n.title"  
-        :subtitle="n.subtitle" :img="n.img" :created_at="n.created_at" @clicknewsdetail="showIndex" ></related>
-    </div>
-   </div>
-   
-   
-</div>
-
-    <footer class="mt-5 row">
-        <nav class="mt-3 bg-nav nav-style justify-content-center text-white">
-            <a class="text-center mx text-decoration-none fs-s " href="geeknews@gmail.com"> Contactenos</a>
-                  <p class="fs-s text-center text-white">
-                     ©Geeknews
-                  </p>
-        </nav>
-    </footer>
-
-</div>
 
 
-<script src="js/main.js"></script>
-<script src="js/components/newsCards.js"></script>
-<script src="js/components/NewsDetails.js"></script>
-<script src="js/components/RelatedNews.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/components/newsCards.js"></script>
+    <script src="js/components/NewsDetails.js"></script>
+    <script src="js/components/RelatedNews.js"></script>
 
-<script>
-    const mountedApp = app.mount('#app');
-</script>
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
 
 </body>
 
