@@ -24,6 +24,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/news', [NewsController::class, 'index']);
 Route::get("news/detail/{id}", [NewsController::class, "detail"]);
 Route::get("/news/search/{keyboard}", [NewsController::class, "search"]);
+Route::get('/news/category/{category}', [NewsController::class, 'filter']);
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 Route::middleware(['auth:sanctum'])->group( function () {

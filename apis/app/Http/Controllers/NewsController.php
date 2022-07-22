@@ -35,9 +35,7 @@ class NewsController extends Controller
     ["id","<>",$id]])->get();
 
     return $related_news;
-    //El count ayuda a preguntarle al array si tiene o no valores
-    
-   
+    //El count ayuda a preguntarle al array si tiene o no valores   
 }
 
 public function search($keyboard){
@@ -54,6 +52,13 @@ public function search($keyboard){
             return response()->json(["message"=> "No found: ".$keyboard]);
         } 
     }   
+
+public function filter($category){
+        $item=DB::table('news')->join("categories","news.categories_id","=","categories.id")
+        ->select("news.id", "news.title", "news.subtitle", "news.img", "news.description", "news.created_at",
+        "categories.name", "categories.name as category")->where("categories.id","=",$category)->get();
+        return $item;
+}
 
     /**
      * Show the form for creating a new resource.
