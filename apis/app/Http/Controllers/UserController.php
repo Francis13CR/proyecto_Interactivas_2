@@ -12,13 +12,27 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-        return $users;
+        
+        $user=User::firstwhere('id', $request->id);
+
+        return response()->json($user, 200);
+        
         //
+
     }
 
+    public function changepassword(Request $request){
+
+        $user=User::find($request->id);
+
+        $password = $request->password;
+        $user->password=hash('sha256', $password);
+
+        $user->save();
+
+    }
     /**
      * Show the form for creating a new resource.
      *
