@@ -1,0 +1,7 @@
+//archivo para todos los mixins y funciones que se usan en el proyecto
+
+//funcion  para pasar de pixeles a rems
+@function rem($px) {
+    @return calc($px / 16)+rem;
+}
+
