@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/news', [NewsController::class, 'index']);
 Route::get("news/detail/{id}", [NewsController::class, "detail"]);
+Route::get("/news/search/{keyboard}", [NewsController::class, "search"]);
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 Route::middleware(['auth:sanctum'])->group( function () {

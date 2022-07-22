@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\News;
 use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
@@ -38,6 +39,21 @@ class NewsController extends Controller
     
    
 }
+
+public function search($keyboard){
+    $results=DB::table("news")->join("categories", "news.categories_id","=","categories.id")
+    ->select("news.id", "news.title", "news.img", "news.description", "news.created_at",
+    "categories.name")
+    ->where("news.title", "like", "%{$keyboard}%")
+    ->orWhere("news.descriprion", "like", "%{$keyboard}%")
+    ->get();
+
+    if(count($results) > 0){
+        return $results;
+        }else{
+            return response()->json(["message"=> "No found: ".$keyboard]);
+        } 
+    }   
 
     /**
      * Show the form for creating a new resource.
