@@ -11,7 +11,7 @@ app.component('news-menu-button',{
     },
     methods:{
         clickNewsCategory(category){
-            console.log("click -> " + category);
+          
             this.$emit('clicknewscategory', category);
         }
     },

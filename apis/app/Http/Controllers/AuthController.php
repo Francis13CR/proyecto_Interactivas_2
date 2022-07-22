@@ -87,6 +87,7 @@ class AuthController extends Controller
             'message' => 'Sesión cerrada']);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
