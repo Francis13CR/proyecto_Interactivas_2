@@ -32,6 +32,7 @@ const app = Vue.createApp({
           img: "",
         },
       ],
+      recomend_news:[],
       all_news: [],
       recomend_news: [],
       search: "",
@@ -61,13 +62,22 @@ const app = Vue.createApp({
   methods: {
     showIndex(id) {
       
-      fetch("http://apis.test/api/news/detail/" + 6)
+      console.log("category "+ categories_id);
+      fetch("http://apis.test/api/news/detail/" + id)
         .then((response) => response.json())
         .then((data) => {
+          console.log(data);
           this.selected_news = data;
-          this.show_notice_details = true;
+          this.show_notice_details=true;
         });
-      // //seleccionar el index del item
+
+        fetch("http://apis.test/api/news/related/" + id +"/"+categories_id)
+        .then((response) => response.json())
+        .then((data) => {
+          this.recomend_news=data;
+          console.log( this.recomend_news);
+        });
+      //seleccionar el index del item
       // let index = this.all_news.findIndex(item => item.id == id);
       // this.selectedItem=index;
       // this.show_notice_details=true;
@@ -79,12 +89,12 @@ const app = Vue.createApp({
       // });
       // this.recomend_news = filterNews;
       // //mover el scroll hacia arriba
-      //  setTimeout(function () {
-      //      window.scrollTo(0, 0);
-      //  }, 2);
-      //  document.getElementById('app').scrollIntoView({
-      //     behavior: 'smooth'
-      // });
+       setTimeout(function () {
+           window.scrollTo(0, 0);
+       }, 2);
+       document.getElementById('app').scrollIntoView({
+          behavior: 'smooth'
+      });
     },
     home(i) {
       
