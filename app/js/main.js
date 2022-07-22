@@ -2,16 +2,26 @@ const app = Vue.createApp({
   data() {
     return {
       news: [{
-        id: 1,
-        title: 'Se espera que las ventas de la ps5 lleguen a los 10 millones de dólares',
-        subtitle: 'Hola soy un subtitulo de la noticia',
-        description: 'El equipo de Sony ha confirmado que las ventas de la consola PlayStation 5 llegarán a los 10 millones de dólares, según la compañía.',
-        image: './imgs/imgspruebas/ps4.png',
-        available: true,
-        date: ' May 5, 2022, 9:05am EDT',
-        category: 'Juegos',
-        likes: 90
-    }],
+
+          id: 6,
+          title: "Se espera que las ventas de la ps5 lleguen a los 10 millones de dólares",
+          subtitle: "Hola soy un subtitulo de la noticia",
+          img: "prueba.png",
+          description: "El equipo de Sony ha confirmado que las ventas de la consola PlayStation 5 llegarán a los 10 millones de dólares, según la compañía.",
+          created_at: "2022-07-19 05:21:23",
+          name: "anime"
+        },
+        {
+
+            id: 7,
+            title: "Se espera que las ventas de la ps5 lleguen a los 10 millones de dólares",
+            subtitle: "Hola soy un subtitulo de la noticia",
+            img: "prueba.png",
+            description: "El equipo de Sony ha confirmado que las ventas de la consola PlayStation 5 llegarán a los 10 millones de dólares, según la compañía.",
+            created_at: "2022-07-19 05:21:23",
+            name: "anime"
+        }
+     ],
       show_notice_details: false,
       selected_news: [
         {
@@ -50,10 +60,10 @@ const app = Vue.createApp({
  
   methods: {
     showIndex(id) {
-      fetch("http://apis.test/api/news/detail/" + id)
+      
+      fetch("http://apis.test/api/news/detail/" + 6)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           this.selected_news = data;
           this.show_notice_details = true;
         });
@@ -320,19 +330,28 @@ const app = Vue.createApp({
     },
   },
   mounted() {
+    
+    // fetch("http://apis.test/api/categories",{
+    //     method: "GET",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         "Accept": "application/json",
+    //     },
+    // })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         // this.categories = data.data;
+    //     }
+    // );
+    
+    
+
+    // fetch("http://apis.test/api/news")
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     // this.news = JSON.parse(JSON.stringify(data));
+    //   });
     this.all_news = this.news;
-    fetch("http://apis.test/api/categories")
-    .then((response) => response.json())
-    .then((data) => {
-      this.categories = data;
-    });
-
-    fetch("http://apis.test/api/news")
-      .then((response) => response.json())
-      .then((data) => {
-        this.news = data;
-      });
-
     // se llama la api de categorias y se carga en el array de categorias
   
     //consultar almacenamiento local para ver si el usuario esta logueado

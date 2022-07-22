@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" crossorigin="anonymous">
     </script>
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Google icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -21,12 +23,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
 
-      <!-- sweetalert2-->
-      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- sweetalert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
-    
-   
+
+
     <title>Geeknews</title>
 </head>
 
@@ -34,121 +36,119 @@
     <div class="container-fluid " id="app">
         <header class="row">
             <div class="container-fluid">
-
-          
-            <nav class="mb-1 fixed-top  bg-nav nav-style shadow" aria-label="main navigation">
-                <a class="navbar-brand mx-5 nav-title" href="javascript:void(0);" @click="home(1)">Geeknews</a>
-                <ul class="nav justify-content-center nav-hidden">
-                    <li class="nav-item">
-                        <a class="nav-link  active" aria-current="page" href="javascript:void(0);" @click="home(1)">Home</a>
-                    </li>
-                    <li v-for="(c, index) in categories" class="nav-item">
-                        <button class="btn text-white btn-nav" @click="showNoticeByCategory(c.name)">{{c.name}}</button>
-                    </li>
-                    <div class="d-flex mx-5 justify-content-end ">
-                        <li v-show="!isLogged" class="nav-item login justify-content-end ">
-                            <a class="nav-link" href="login.html">Iniciar sesión</a>
+                <nav class="mb-1 fixed-top  bg-nav nav-style shadow" aria-label="main navigation">
+                    <a class="navbar-brand mx-5 nav-title" href="javascript:void(0);" @click="home(1)">Geeknews</a>
+                    <ul class="nav justify-content-center nav-hidden">
+                        <li class="nav-item">
+                            <a class="nav-link  active" aria-current="page" href="javascript:void(0);"
+                                @click="home(1)">Home</a>
                         </li>
-                        <li v-show="!isLogged"  class="nav-item justify-content-end ">
-                            <a class="nav-link" href="registro.html">Regístrate</a>
+                        <li v-for="(c, index) in categories" class="nav-item">
+                            <button class="btn text-white btn-nav"
+                                @click="showNoticeByCategory(c.name)">{{c.name}}</button>
                         </li>
-                        <li v-show="isLogged" class="nav-item login justify-content-end ">
-                            <a class="nav-link" href="javascript:void(0)"  @click="logout">Cerrar sesión</a>
-                        </li>
-                        <li class="nav-item justify-content-end ">
-                            <a class="nav-link" href="perfil.html">Perfil</a>
-                        </li>
-                        
-                    </div>
-                    <div class="d-flex mb-1">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            v-model="search" @keypress="search_notice">
-                        <button class="btn btn-outline-secondary text-white" aria-label="Search_btn" type="button"
-                            @click="search_notice">Search</button>
-                    </div>
-
-                </ul>
-                <!--Boton de menu lateral-->
-                <button aria-label="sidebar" class="btn-offcanvas btn btn-outline-light position-absolute bottom-50 end-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Menu</button>
-                <div  class=" offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                    aria-labely="offcanvasRightLabel">
-                    <div class="offcanvas-header">
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body bg-nav">
-                        <ul class="list-unstyled">
-                            <li v-for="(c, index) in categories" class="nav-item">
-                                <button class="btn text-white" @click="showNoticeByCategory(c.name)">{{c.name}}</button>
-                            </li>
-                        </ul>
-                        <hr class="bg-light">
-                        <ul class="list-unstyled ">
-                            <li>
+                        <div class="d-flex mx-5 justify-content-end ">
+                            <li v-show="!isLogged" class="nav-item login justify-content-end ">
                                 <a class="nav-link" href="login.html">Iniciar sesión</a>
                             </li>
-                            <li>
+                            <li v-show="!isLogged" class="nav-item justify-content-end ">
                                 <a class="nav-link" href="registro.html">Regístrate</a>
                             </li>
-                            <li>
+                            <li v-show="isLogged" class="nav-item login justify-content-end ">
+                                <a class="nav-link" href="javascript:void(0)" @click="logout">Cerrar sesión</a>
+                            </li>
+                            <li class="nav-item justify-content-end ">
                                 <a class="nav-link" href="perfil.html">Perfil</a>
                             </li>
-                        </ul>
-                        <div class="d-flex">
-                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                                 v-model="search" @keypress="search_notice">
-                             <button class="btn btn-outline-secondary text-white" type="button"
-                                 @click="search_notice">Search</button>
-                         </div>
-                          
-                    </div>
-                </div>
-                <!--Boton de menu lateral fin-->
 
+                        </div>
+                        <div class="d-flex mb-1">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                v-model="search" @keypress="search_notice">
+                            <button class="btn btn-outline-secondary text-white" aria-label="Search_btn" type="button"
+                                @click="search_notice">Search</button>
+                        </div>
+
+                    </ul>
+                    <!--Boton de menu lateral-->
+                    <button aria-label="sidebar"
+                        class="btn-offcanvas btn btn-outline-light position-absolute bottom-50 end-0" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight">Menu</button>
+                    <div class=" offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                        aria-labely="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body bg-nav">
+                            <ul class="list-unstyled">
+                                <li v-for="(c, index) in categories" class="nav-item">
+                                    <button class="btn text-white"
+                                        @click="showNoticeByCategory(c.name)">{{c.name}}</button>
+                                </li>
+                            </ul>
+                            <hr class="bg-light">
+                            <ul class="list-unstyled ">
+                                <li>
+                                    <a class="nav-link" href="login.html">Iniciar sesión</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="registro.html">Regístrate</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="perfil.html">Perfil</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                    v-model="search" @keypress="search_notice">
+                                <button class="btn btn-outline-secondary text-white" type="button"
+                                    @click="search_notice">Search</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Boton de menu lateral fin-->
+                </nav>
             </div>
-            </nav>
         </header>
         <!--noticias normales-->
         <div v-show="!show_notice_details" class="row margin-notices">
-            <news-cards v-for="(n,index) in news" :index="index" :id="n.id" :title="n.title"  
-                :subtitle="n.subtitle" :img="n.img" :created_at="n.created_at"  @clicknewsdetail="showIndex">
+            <news-cards v-for="(n,index) in news" :index="index" :id="n.id" :title="n.title" :subtitle="n.subtitle"
+                :img="n.img" :created_at="n.created_at" @clicknewsdetail="showIndex">
             </news-cards>
         </div>
 
         <!-- detalles de noticias-->
-           
-       <div class="col-12">
-        <div v-show="show_notice_details" class="  margin-notices">
+
+        
+        <div class="col-12">
             <div v-show="show_notice_details" class="  margin-notices">
-                <news-details  :title="selected_news[0].title"
-                :subtitle="selected_news[0].subtitle"
-                :category="selected_news[0].category" 
-                :created_at="selected_news[0].created_at" :description="selected_news[0].description" @closnotice="home">
-            </news-details>
+                <div v-show="show_notice_details" class="  margin-notices">
+                    <news-details :title="selected_news[0].title" :subtitle="selected_news[0].subtitle"
+                        :category="selected_news[0].category" :created_at="selected_news[0].created_at"
+                        :description="selected_news[0].description" :img="selected_news[0].img" @closnotice="home">
+                    </news-details>
+                </div>
+            </div>
         </div>
-
-      
-       </div>
-       </div>
-       
-       
-    </div>
-
         <footer class="mt-5 row">
             <nav class="mt-3 bg-nav nav-style justify-content-center text-white">
                 <a class="text-center mx text-decoration-none fs-s " href="geeknews@gmail.com"> Contactenos</a>
-                      <p class="fs-s text-center text-white">
-                         ©Geeknews
-                      </p>
+                <p class="fs-s text-center text-white">
+                    ©Geeknews
+                </p>
             </nav>
         </footer>
-
     </div>
 
+    
     <script src="js/main.js"></script>
     <script src="js/components/newsCards.js"></script>
     <script src="js/components/NewsDetails.js"></script>
-    <script src="js/components/RelatedNews.js"></script>
- 
+    <!-- <script src="js/components/RelatedNews.js"></script> -->
+
     <script>
         const mountedApp = app.mount('#app');
     </script>
