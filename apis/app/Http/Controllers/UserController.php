@@ -1,50 +1,57 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\News;
-
-class NewsController extends Controller
+use Illuminate\Support\Facades\Validator;
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        
+        $user=User::firstwhere('id', $request->id);
+
+        return response()->json($user, 200);
+        
         //
-        $news = DB::table("news")->join("categories", "news.categories_id", "=", "categories.id")
-        ->select("news.id", "news.title", "news.subtitle", "news.img", "news.description", "news.created_at",
-        "news.categories_id","categories.name")->get();
-        return $news;
+
     }
-    public function detail($id){
-        //$news = News::find($id);
-        $item=DB::table('news')->join("categories","news.categories_id","=","categories.id")
-        ->select("news.id", "news.title", "news.subtitle", "news.img", "news.description", "news.created_at", "news.categories_id",
-        "categories.name", "categories.name as category")->where("news.id","=",$id)->get();
-        return $item;
- }
 
- public function related($id,$category){
-    $related_news = News::where([
-    ["categories_id","=",$category],
-    ["id","<>",$id]])->get();
+    public function changepassword(Request $request){
 
-    return $related_news;
-    //El count ayuda a preguntarle al array si tiene o no valores
-    
-   
-}
+        $user=User::find($request->id);
+        $password=$request->password;
+        //validate the request...
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|string|min:8',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(
+                [
+                    'status' => 'error',
+                    'errors' => $validator->errors()
+                ]
+            );
+        }
+        
 
-    public function filter($category){
-        $item=DB::table('news')->join("categories","news.categories_id","=","categories.id")
-        ->select("news.id", "news.title", "news.subtitle", "news.img", "news.description", "news.created_at",
-        "categories.name", "categories.name as category")->where("categories.name","=",$category)->get();
-        return $item;
+
+        $user->password=Hash::make($password);
+        $user->save();
+        
+        return response()->json(
+            [
+                'status' => 'success',
+                'message' => 'Password changed successfully'
+            ]
+        );
+
     }
     /**
      * Show the form for creating a new resource.

@@ -1,27 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
-      news: [{
-
-          id: 6,
-          title: "Se espera que las ventas de la ps5 lleguen a los 10 millones de dólares",
-          subtitle: "Hola soy un subtitulo de la noticia",
-          img: "prueba.png",
-          description: "El equipo de Sony ha confirmado que las ventas de la consola PlayStation 5 llegarán a los 10 millones de dólares, según la compañía.",
-          created_at: "2022-07-19 05:21:23",
-          name: "anime"
-        },
-        {
-
-            id: 7,
-            title: "Se espera que las ventas de la ps5 lleguen a los 10 millones de dólares",
-            subtitle: "Hola soy un subtitulo de la noticia",
-            img: "prueba.png",
-            description: "El equipo de Sony ha confirmado que las ventas de la consola PlayStation 5 llegarán a los 10 millones de dólares, según la compañía.",
-            created_at: "2022-07-19 05:21:23",
-            name: "anime"
-        }
-     ],
+      news: [],
       show_notice_details: false,
       selected_news: [
         {
@@ -49,6 +29,8 @@ const app = Vue.createApp({
         email: "",
         password: "",
         confirm_password: "",
+        category_1: "",
+        category_2: "",
       },
       //variable para saber si esta logueado o no
       isLogged: false,
@@ -57,7 +39,6 @@ const app = Vue.createApp({
         email: "",
         id: "",
       },
-      show_details: false,
     };
   },
  
@@ -104,7 +85,7 @@ const app = Vue.createApp({
       });
     },
     home(i) {
-      
+         ///this.news = this.all_news;
       //obtener el url de donde nos encotramos
       let url = window.location.href;
       //si es diferente a index.html
@@ -114,6 +95,7 @@ const app = Vue.createApp({
       } else {
         if (i == 1) {
           this.show_notice_details = false;
+          this.news = this.all_news;
         }
       }
     },
@@ -237,6 +219,7 @@ const app = Vue.createApp({
             localStorage.setItem("name", name_user);
             localStorage.setItem("email", email_user);
             localStorage.setItem("id", id);
+            localStorage.setItem("token", data.accessToken);
             Swal.fire({
               icon: "success",
               title: "Inicio de sesion exitoso",
@@ -346,7 +329,7 @@ const app = Vue.createApp({
     },
   },
   mounted() {
-    this.all_news = this.news;
+   
     fetch("http://apis.test/api/categories")
         .then((response) => response.json())
         .then((data) => {
@@ -357,6 +340,7 @@ const app = Vue.createApp({
       .then((response) => response.json())
       .then((data) => {
        this.news = data;
+        this.all_news = this.news;
       });
 
     // se llama la api de categorias y se carga en el array de categorias
