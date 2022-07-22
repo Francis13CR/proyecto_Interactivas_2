@@ -17,16 +17,27 @@ class NewsController extends Controller
         //
         $news = DB::table("news")->join("categories", "news.categories_id", "=", "categories.id")
         ->select("news.id", "news.title", "news.subtitle", "news.img", "news.description", "news.created_at",
-         "categories.name")->get();
+        "news.categories_id","categories.name")->get();
         return $news;
     }
     public function detail($id){
         //$news = News::find($id);
         $item=DB::table('news')->join("categories","news.categories_id","=","categories.id")
-        ->select("news.id", "news.title", "news.subtitle", "news.img", "news.description", "news.created_at",
+        ->select("news.id", "news.title", "news.subtitle", "news.img", "news.description", "news.created_at", "news.categories_id",
         "categories.name", "categories.name as category")->where("news.id","=",$id)->get();
         return $item;
  }
+
+ public function related($id,$category){
+    $related_news = News::where([
+    ["categories_id","=",$category],
+    ["id","<>",$id]])->get();
+
+    return $related_news;
+    //El count ayuda a preguntarle al array si tiene o no valores
+    
+   
+}
 
     /**
      * Show the form for creating a new resource.
